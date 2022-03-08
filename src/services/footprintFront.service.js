@@ -30,4 +30,4 @@ class FootprintServiceFront {
 
 const footprintServiceFront = new FootprintServiceFront()
 
-module.exports = footprintServiceFront
+export default footprintServiceFront
