@@ -1,0 +1,12 @@
+.body {
+    height: 100%;
+}
+
+.text {
+    overflow: hidden;
+    height: 100px;
+}
+
+.news-section {
+    margin-bottom: 100px;
+}

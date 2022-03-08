@@ -1,0 +1,11 @@
+.navbar-links {
+    text-decoration: none;
+}
+
+.log-out:hover{
+    cursor: pointer;
+}
+
+.full-navbar {
+    margin-bottom: 40px;
+}

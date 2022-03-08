@@ -1,0 +1,16 @@
+.comment-box {
+    margin-top: 20px;
+    width: 300px
+}
+ .landing {
+     display: flex;
+     flex-direction: column;
+ }
+
+ .comments-card {
+     margin: 10px;
+ }
+
+.user-section{
+    background-color: red;
+}

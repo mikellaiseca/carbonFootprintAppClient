@@ -1,0 +1,32 @@
+body{
+background: rgba(2, 0, 36, 0.192);
+background: radial-gradient(circle, rgba(2, 0, 36, 0.171) 0%, rgba(12, 12, 125, 0.178) 35%, 
+rgba(0, 213, 255, 0.199) 100%);
+}
+
+.container{
+    text-align: center;
+}
+
+.block {
+    background-color: #00d5ff34;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.col{
+    background-color: #00d5ff34;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;   
+   
+    
+}
+
+.blockOne {    
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+   
+}
