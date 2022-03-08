@@ -14,5 +14,5 @@ class NewsService {
 
 }
 
-module.exports = NewsService
+export default NewsService
 
