@@ -2,8 +2,9 @@ import footprintServiceBack from '../../services/footprintBack.service'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
-import FootprintFormCar2 from './FootprintFormCarModel'
+import FootprintFormCarModel from './FootprintFormCarModel'
 import usersService from '../../services/users.service'
+import FootprintFormCarModel from './FootprintFormCarModel'
 
 const FootprintFormCar = () => {
 
@@ -53,7 +54,7 @@ const FootprintFormCar = () => {
                     <Form.Control type="text" name="distance_value" value={footprintFormCar.distance_value} onChange={handleInputChange} />
                 </Form.Group>
 
-                <FootprintFormCar2 findModelId={findModelId} />
+                <FootprintFormCarModel findModelId={findModelId} />
 
                 <Form.Group className="mb-3">
                     <Form.Label>Vehicle model ID</Form.Label>
