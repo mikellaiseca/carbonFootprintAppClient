@@ -10,12 +10,12 @@ const CommentList = (commentId) => {
 
     const commentInfo = commentId.commentId
 
+    console.log(commentInfo);
+
     const deleteComment = () => {
 
-        usersService.pullComment(commentInfo._id, user._id)
-            .then(() => {
-                return commentService.deleteComment(commentInfo._id)
-            })
+        commentService
+            .deleteComment(commentInfo._id)
             .then(() => console.log('comentario eliminado'))
             .catch(err => console.log(err))
     }
@@ -27,6 +27,7 @@ const CommentList = (commentId) => {
                     <Card.Subtitle className="mb-2 text-muted">{commentInfo.date}</Card.Subtitle>
                     <p>{commentInfo.content}</p>
                     {(user._id === commentInfo.profile._id) ? (<Button variant="primary" type="submit" onClick={deleteComment}>Delete</Button>) : null}
+                    {(user._id === commentInfo.author._id) ? (<Button variant="primary" type="submit">Edit</Button>) : null}
                 </Card.Body>
             </Card>
         </>

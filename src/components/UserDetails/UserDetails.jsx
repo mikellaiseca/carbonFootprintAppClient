@@ -26,8 +26,6 @@ const UserDetails = () => {
 
     const [commentsList, setCommentsList] = useState([])
 
-    const [totaltFootprint, setTotalFootprint] = useState()
-
     const navigate = useNavigate()
 
     const { user_id } = useParams()
@@ -35,8 +33,6 @@ const UserDetails = () => {
     const { content } = comment
 
     const { user } = useContext(AuthContext)
-
-
 
     useEffect(() => {
         loadUserDetails()
@@ -82,10 +78,6 @@ const UserDetails = () => {
 
         commentService
             .createComment({ content, author: user, profile: user_id, date: new Date })
-            .then(({ data }) => {
-                console.log(data)
-                usersService.pushComment(user_id, data)
-            })
             .then(() => {
                 setLoadingComment(false)
                 setComment({
@@ -115,49 +107,51 @@ const UserDetails = () => {
 
             <Container className="user-section">
 
-                <Row>
+                <Container className='main-info'>
+                    <Row className='profileAndComments'>
 
-                    <Col >
-                        <Card className="card" style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src={userDetails.profileImg} />
-                            <Card.Body className="body">
-                                <Card.Title>{userDetails.username}</Card.Title>
-                            </Card.Body>
-                        </Card>
-                    </Col>
+                        <Col>
+                            <Card className="card" style={{ width: '18rem' }}>
+                                <Card.Img variant="top" src={userDetails.profileImg} />
+                                <Card.Body className="body">
+                                    <Card.Title>{userDetails.username}</Card.Title>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+
+                    </Row>
+
+                    <Container className='user-footprints'>
+                        {<Row className='profileAndComments'>
+                            <h3>Car Footprints</h3>
+                            <Co2Carfootprint profileId={userDetails._id} totalfootprint={totalfootprint} />
+                        </Row>}
+
+                        {<Row className='profileAndComments'>
+                            <h3>Flight Footprints</h3>
+                            <Co2Flightfootprint profileId={userDetails._id} totalfootprint={totalfootprint} />
+                        </Row>}
+                    </Container>
+                </Container>
+
+                <Row className='profileAndComments'>
+
+                    {(user?._id !== user_id) ?
+                        <Form onSubmit={handleSubmit}>
+
+                            <Form.Group className="comment-box" controlId="exampleForm.ControlTextarea1">
+                                <Form.Control as="textarea" rows={3} name="content" placeholder="Leave your comment" value={content} onChange={handleInputChange} />
+                            </Form.Group>
+                            {loadingComment && <Button variant="primary" type="submit">Post</Button>}
+                        </Form>
+
+                        :
+
+                        null
+
+                    }
 
                 </Row>
-
-                <Row>
-                    <Col>
-
-                        {(user?._id !== user_id) ?
-                            <Form onSubmit={handleSubmit}>
-
-                                <Form.Group className="comment-box" controlId="exampleForm.ControlTextarea1">
-                                    <Form.Control as="textarea" rows={3} name="content" placeholder="Leave your comment" value={content} onChange={handleInputChange} />
-                                </Form.Group>
-                                {loadingComment && <Button variant="primary" type="submit">Post</Button>}
-                            </Form>
-
-                            :
-
-                            null
-
-                        }
-
-                    </Col>
-                </Row>
-
-                {<Row>
-                    <h3>Car Footprints</h3>
-                    <Co2Carfootprint profileId={userDetails._id} totalfootprint={totalfootprint} />
-                </Row>}
-
-                {<Row>
-                    <h3>Flight Footprints</h3>
-                    <Co2Flightfootprint profileId={userDetails._id} totalfootprint={totalfootprint} />
-                </Row>}
 
                 <Row>
                     {commentsList?.map((comment, idx) => {

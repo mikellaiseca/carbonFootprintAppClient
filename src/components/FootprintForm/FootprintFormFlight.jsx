@@ -52,7 +52,7 @@ const FootprintFormFlight = () => {
                     <Form.Control type="text" name="destination_airport" value={footprintForm.destination_airport} onChange={handleInputChange} />
                 </Form.Group>
 
-                <Button variant="dark" type="submit" style={{ width: '100%' }}>Log-in</Button>
+                <Button variant="dark" type="submit" style={{ width: '100%' }}>Calculate</Button>
 
             </Form>
         </>

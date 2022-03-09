@@ -16,14 +16,11 @@ const Co2Carfootprint = ({ profileId }) => {
 
     }, [profileId])
 
-
-
     const checkThereIsAprofile = () => {
 
         return profileId?.length > 0 && loadCo2footprints()
 
     }
-
 
     const loadCo2footprints = () => {
 
@@ -31,17 +28,18 @@ const Co2Carfootprint = ({ profileId }) => {
             .getCarCustomFootprint(profileId)
             .then(({ data }) => setCarFootprint(data))
             .catch(err => console.log(err))
-
-
     }
 
-    // const deleteFootprintCar = () => {
+    const deleteFootprintCar = () => {
 
-    //     footprintServiceBack
-    //         .deleteFootprintCar(carFootprints._id)
-    //         .then(() => console.log('comentario eliminado'))
-    //         .catch(err => console.log(err))
-    // }
+        carFootprints.map(carFootprint => {
+
+            footprintServiceBack
+                .deleteFootprintCar(carFootprint._id)
+                .then(() => console.log('footprint eliminada'))
+                .catch(err => console.log(err))
+        })
+    }
 
     return carFootprints.length > 0 && (
 
@@ -70,7 +68,7 @@ const Co2Carfootprint = ({ profileId }) => {
 
                             </ListGroup>
                             <Card.Body>
-                                {(user._id === carFootprint.user) ? (<Button variant="primary" type="submit">Delete Footprint</Button>) : null}
+                                {(user._id === carFootprint.user) ? (<Button variant="primary" type="submit" onClick={deleteFootprintCar}>Delete Footprint</Button>) : null}
                             </Card.Body>
                         </Card>
                     </Col >

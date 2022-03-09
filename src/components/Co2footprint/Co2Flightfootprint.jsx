@@ -1,25 +1,19 @@
-import { Card, Col, ListGroup, ListGroupItem } from 'react-bootstrap'
+import { Card, Col, ListGroup, ListGroupItem, Button } from 'react-bootstrap'
 import { useEffect, useState } from 'react'
 import footprintServiceBack from '../../services/footprintBack.service'
-
-
+import { AuthContext } from './../../context/auth.context'
+import { useContext } from 'react'
 
 const Co2Flightfootprint = ({ profileId }) => {
 
-    console.log(profileId)
-
     const [flightFootprints, setFlightFootprint] = useState([])
-
-    console.log(flightFootprints, 'soy las footprints')
+    const { user } = useContext(AuthContext)
 
     useEffect(() => {
 
         checkThereIsAprofile()
 
-
     }, [profileId])
-
-
 
     const checkThereIsAprofile = () => {
 
@@ -27,19 +21,24 @@ const Co2Flightfootprint = ({ profileId }) => {
 
     }
 
-
     const loadCo2footprints = () => {
-
-        console.log(profileId, 'estoy entrandoooooooooooooooo')
 
         footprintServiceBack
             .getFlightCustomFootprint(profileId)
             .then(({ data }) => setFlightFootprint(data))
             .catch(err => console.log(err))
-
-
     }
 
+    const deleteFootprintFlight = () => {
+
+        flightFootprints.map(flightFootprint => {
+
+            footprintServiceBack
+                .deleteFootprintFlight(flightFootprint._id)
+                .then(() => console.log('footprint eliminada'))
+                .catch(err => console.log(err))
+        })
+    }
 
     return flightFootprints.length > 0 && (
 
@@ -71,17 +70,13 @@ const Co2Flightfootprint = ({ profileId }) => {
                                 {flightFootprint.legs[0].destination_airport}-
                                 {flightFootprint.legs[0].departure_airport}
 
-
-
-
                             </ListGroupItem>
 
                             <ListGroupItem>{flightFootprint.vehicle_year}</ListGroupItem>
 
                         </ListGroup>
                         <Card.Body>
-                            <Card.Link href="#">Card Link</Card.Link>
-                            <Card.Link href="#">Another Link</Card.Link>
+                            {(user._id === flightFootprint.user) ? (<Button variant="primary" type="submit" onClick={deleteFootprintFlight}>Delete Footprint</Button>) : null}
                         </Card.Body>
                     </Card>
                 </Col >

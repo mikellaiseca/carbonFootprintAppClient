@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
 import FootprintFormCarModel from './FootprintFormCarModel'
 import usersService from '../../services/users.service'
-import FootprintFormCarModel from './FootprintFormCarModel'
 
 const FootprintFormCar = () => {
 
@@ -64,7 +63,7 @@ const FootprintFormCar = () => {
                     />
                 </Form.Group>
 
-                <Button variant="dark" type="submit" style={{ width: '100%' }}>Log-in</Button>
+                <Button variant="dark" type="submit" style={{ width: '100%' }}>Calculate</Button>
 
             </Form>
         </>

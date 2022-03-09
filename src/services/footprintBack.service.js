@@ -19,7 +19,6 @@ class FootprintServiceBack {
         })
     }
 
-
     getFlightFootprint = (body) => {
 
         return this.api.post('/flight-form', body)
@@ -32,15 +31,20 @@ class FootprintServiceBack {
 
     getCarCustomFootprint = (userId) => {
 
-        return this.api.get(`/car-custom-footprints/${userId
-            }`)
+        return this.api.get(`/car-custom-footprints/${userId}`)
     }
 
     getFlightCustomFootprint = (userId) => {
 
-        console.log(userId, 'service frontttttttttttt')
-
         return this.api.get(`/flight-custom-footprints/${userId}`)
+    }
+
+    deleteFootprintCar(id) {
+        return this.api.delete(`/delete-footprintCar/${id}`)
+    }
+
+    deleteFootprintFlight(id) {
+        return this.api.delete(`/delete-footprintFlight/${id}`)
     }
 
 }
