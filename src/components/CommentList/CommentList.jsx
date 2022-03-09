@@ -7,8 +7,8 @@ import usersService from "../../services/users.service"
 const CommentList = (commentId) => {
 
     const { user } = useContext(AuthContext)
-
     const commentInfo = commentId.commentId
+
 
     const deleteComment = () => {
 

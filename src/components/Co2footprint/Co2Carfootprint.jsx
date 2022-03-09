@@ -6,7 +6,7 @@ import { useContext } from 'react'
 import './Co2footprint.css'
 
 
-const Co2Carfootprint = ({ profileId, totalFootprintCar }) => {
+const Co2Carfootprint = ({ profileId, totalCarFootprint }) => {
 
     const [carFootprints, setCarFootprint] = useState([])
     const { user } = useContext(AuthContext)
@@ -46,34 +46,35 @@ const Co2Carfootprint = ({ profileId, totalFootprintCar }) => {
 
 
         carFootprints.map((carFootprint, i) => {
+
             return (
 
-                <Container className='footprints'>
-                    < Col key={i}>
+                <Col key={i} className='footprints'>
 
-                        <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src="https://zijderlaan.nl/media/k2/items/cache/3899dfe821816fbcb3db3e3b23f81585_XL.jpg" />
-                            <Card.Body>
-                                <Card.Title>Your CO2 Car Footprint</Card.Title>
-                                <Card.Text>
-                                    {carFootprint.carbon_kg}
-                                </Card.Text>
-                            </Card.Body>
-                            <ListGroup className="list-group-flush">
-                                <ListGroupItem>{carFootprint.distance_value}</ListGroupItem>
-                                <ListGroupItem>{carFootprint.distance_unit}</ListGroupItem>
-                                <ListGroupItem>{carFootprint.vehicle_make}</ListGroupItem>
-                                <ListGroupItem>{carFootprint.vehicle_model}</ListGroupItem>
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Img variant="top" src="https://zijderlaan.nl/media/k2/items/cache/3899dfe821816fbcb3db3e3b23f81585_XL.jpg" />
+                        <Card.Body>
+                            <Card.Title>Your CO2 Car Footprint</Card.Title>
+                            <Card.Text>
+                                {carFootprint.carbon_kg}
+                                {totalCarFootprint(carFootprint.carbon_kg)}
+                            </Card.Text>
+                        </Card.Body>
+                        <ListGroup className="list-group-flush">
+                            <ListGroupItem>{carFootprint.distance_value}</ListGroupItem>
+                            <ListGroupItem>{carFootprint.distance_unit}</ListGroupItem>
+                            <ListGroupItem>{carFootprint.vehicle_make}</ListGroupItem>
+                            <ListGroupItem>{carFootprint.vehicle_model}</ListGroupItem>
 
-                                <ListGroupItem>{carFootprint.vehicle_year}</ListGroupItem>
+                            <ListGroupItem>{carFootprint.vehicle_year}</ListGroupItem>
 
-                            </ListGroup>
-                            <Card.Body>
-                                {(user._id === carFootprint.user) ? (<Button variant="primary" type="submit" onClick={deleteFootprintCar}>Delete Footprint</Button>) : null}
-                            </Card.Body>
-                        </Card>
-                    </Col >
-                </Container>
+                        </ListGroup>
+                        <Card.Body>
+                            {(user._id === carFootprint.user) ? (<Button variant="primary" type="submit" onClick={deleteFootprintCar}>Delete Footprint</Button>) : null}
+                        </Card.Body>
+                    </Card>
+                </Col >
+
 
             )
         })

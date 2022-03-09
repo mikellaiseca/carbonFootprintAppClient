@@ -27,6 +27,9 @@ const UserDetails = () => {
 
     const [commentsList, setCommentsList] = useState([])
 
+    const [totalSum, setTotalSum] = useState(0)
+    console.log(totalSum)
+
     const navigate = useNavigate()
 
     const { user_id } = useParams()
@@ -93,6 +96,30 @@ const UserDetails = () => {
 
     }
 
+
+
+
+    const sumCar = []
+    console.log(sumCar)
+
+    const totalCarfootprint = (totalCarFootprint) => {
+
+        return sumCar.push(totalCarFootprint)
+    }
+
+    const sumFlight = []
+    console.log(sumFlight)
+
+    const totalFlightfootprint = (totalFlightFootprint) => {
+
+        return sumFlight.push(totalFlightFootprint)
+    }
+
+
+
+
+
+
     return (
         <>
 
@@ -115,13 +142,16 @@ const UserDetails = () => {
                     <Container className='user-footprints'>
                         {<Row className='profileAndComments'>
                             <h3>Car Footprints</h3>
-                            <Co2Carfootprint profileId={userDetails._id} />
+
+                            <Co2Carfootprint profileId={userDetails._id} totalCarFootprint={totalCarfootprint} />
                         </Row>}
 
                         {<Row className='profileAndComments'>
+
                             <h3>Flight Footprints</h3>
-                            <Co2Flightfootprint profileId={userDetails._id} />
+                            <Co2Flightfootprint profileId={userDetails._id} totalFlightfootprint={totalFlightfootprint} />
                         </Row>}
+
                     </Container>
                 </Container>
 
