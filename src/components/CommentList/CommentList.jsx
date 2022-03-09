@@ -10,8 +10,6 @@ const CommentList = (commentId) => {
 
     const commentInfo = commentId.commentId
 
-    console.log(commentInfo);
-
     const deleteComment = () => {
 
         commentService

@@ -10,11 +10,12 @@ import './UserDetails.css'
 import CommentList from '../../components/CommentList/CommentList.jsx'
 import Co2Carfootprint from "../Co2footprint/Co2Carfootprint"
 import Co2Flightfootprint from '../Co2footprint/Co2Flightfootprint'
+import data from '../../data.json'
+import GraphicsUser from '../GraphicsUser/GraphicsUser'
 
 const UserDetails = () => {
 
     const [userDetails, setUserDetails] = useState([])
-    console.log(userDetails)
     const [comment, setComment] = useState({
         author: "",
         profile: "",
@@ -92,16 +93,6 @@ const UserDetails = () => {
 
     }
 
-    const totalfootprint = (carFootprint, flightFootprint) => {
-
-        const totalkgFootprint = carFootprint + flightFootprint
-
-        console.log(totalkgFootprint)
-
-        return totalkgFootprint
-
-    }
-
     return (
         <>
 
@@ -124,12 +115,12 @@ const UserDetails = () => {
                     <Container className='user-footprints'>
                         {<Row className='profileAndComments'>
                             <h3>Car Footprints</h3>
-                            <Co2Carfootprint profileId={userDetails._id} totalfootprint={totalfootprint} />
+                            <Co2Carfootprint profileId={userDetails._id} />
                         </Row>}
 
                         {<Row className='profileAndComments'>
                             <h3>Flight Footprints</h3>
-                            <Co2Flightfootprint profileId={userDetails._id} totalfootprint={totalfootprint} />
+                            <Co2Flightfootprint profileId={userDetails._id} />
                         </Row>}
                     </Container>
                 </Container>
@@ -151,6 +142,10 @@ const UserDetails = () => {
 
                     }
 
+                </Row>
+
+                <Row>
+                    <GraphicsUser data={data} />
                 </Row>
 
                 <Row>
