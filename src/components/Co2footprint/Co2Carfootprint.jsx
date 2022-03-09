@@ -5,6 +5,7 @@ import { AuthContext } from './../../context/auth.context'
 import { useContext } from 'react'
 import './Co2footprint.css'
 
+
 const Co2Carfootprint = ({ profileId }) => {
 
     const [carFootprints, setCarFootprint] = useState([])

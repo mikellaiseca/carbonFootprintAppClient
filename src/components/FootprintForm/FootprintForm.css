@@ -1,0 +1,12 @@
+.testFilter {
+   
+}
+
+.suggestions{
+    background-color: aqua;
+    cursor: pointer;
+}
+
+.suggestions:hover{
+    background-color: beige;
+}
