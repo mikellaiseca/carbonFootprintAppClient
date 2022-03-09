@@ -4,7 +4,7 @@ import footprintServiceBack from '../../services/footprintBack.service'
 import { AuthContext } from './../../context/auth.context'
 import { useContext } from 'react'
 
-const Co2Flightfootprint = ({ profileId }) => {
+const Co2Flightfootprint = ({ profileId, totalFlightfootprint }) => {
 
     const [flightFootprints, setFlightFootprint] = useState([])
     const { user } = useContext(AuthContext)
@@ -54,6 +54,7 @@ const Co2Flightfootprint = ({ profileId }) => {
                             <Card.Title>Your CO2 Flight Footprint</Card.Title>
                             <Card.Text>
                                 {flightFootprint.carbon_kg}
+                                {totalFlightfootprint(flightFootprint.carbon_kg)}
                             </Card.Text>
                         </Card.Body>
                         <ListGroup className="list-group-flush">

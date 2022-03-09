@@ -2,7 +2,6 @@ import footprintServiceFront from '../../services/footprintFront.service'
 import { useState, useEffect } from 'react'
 import { Form } from 'react-bootstrap'
 import TestFilter from './TestFilter'
-import TestFilterTest from './TestFilter copy'
 
 
 const FootprintFormCarModel = ({ findModelId }) => {
@@ -81,7 +80,6 @@ const FootprintFormCarModel = ({ findModelId }) => {
 
 
             <TestFilter models={data} findModelId={findModelId} />
-            <TestFilterTest models={data} findModelId={findModelId} />
 
 
 

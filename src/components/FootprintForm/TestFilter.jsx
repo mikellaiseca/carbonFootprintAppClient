@@ -1,44 +1,24 @@
 import { useState, useEffect } from 'react'
 import { Form } from 'react-bootstrap'
 import './FootprintForm.css'
-import Autocomplete from '@material-ui/lab/Autocomplete';
+import Autocomplete from '@material-ui/lab/Autocomplete'
+import TextField from '@material-ui/core/TextField'
 
 
 const TestFilter = ({ models, findModelId }) => {
 
-
     const [allModels, setAllModels] = useState([])
-    const [q, setQ] = useState("")
-    const [suggestions, setSuggestions] = useState([])
+    console.log(allModels)
+    console.log(models)
+    const [q, setQ] = useState(null)
 
+    const onSugestHandler = (selectedModel) => {
 
+        setQ(selectedModel)
 
-    const onSugestHandler = (mod) => {
-        setQ(mod)
-        setSuggestions([])
-        search(mod)
-
-        let matchingCar = allModels.filter(model => (model.data.attributes.name.toLowerCase() == mod.toLowerCase()))
-
-        return matchingCar.length > 0 && (findModelId(matchingCar[0].data.id))
-
+        return findModelId(selectedModel.data.id)
     }
 
-    const handleInputChange = e => {
-        let matches = []
-
-        if (q.length > 0) {
-            matches = allModels?.filter(model => {
-                const regex = new RegExp(`${q}`, 'gi')
-                console.log(regex)
-                return model.data.attributes.name.match(regex)
-            })
-        }
-
-        setSuggestions(matches)
-
-        setQ(e.target.value)
-    }
 
     useEffect(() => {
 
@@ -47,15 +27,11 @@ const TestFilter = ({ models, findModelId }) => {
     }, [q])
 
 
-    function search(model) {
+    function search(models) {
 
         setAllModels(models)
 
     }
-
-    const top100Films = ['The Godfather', 'Pulp Fiction']
-
-
 
 
     return (
@@ -64,29 +40,28 @@ const TestFilter = ({ models, findModelId }) => {
 
                 <Form.Label>Enter your favourite model</Form.Label>
 
-                <Form.Control type="text" value={q} onChange={handleInputChange} autoComplete="on" />
+                <Autocomplete
+                    id="vehicle model"
+                    options={models}
+                    renderInput={suggestion => (
+                        <TextField {...suggestion} label="Vehicle Model" variant="outlined" value={q} />
+                    )}
+                    getOptionLabel={suggestion => suggestion.data.attributes.name}
+                    onChange={(_event, newModel) => {
+                        onSugestHandler(newModel)
 
-                {suggestions?.map((suggestion, i) =>
+                        console.log(newModel)
 
-                    <div key={i} className='suggestions'
-                        onClick={() => onSugestHandler(suggestion.data.attributes.name)}
-                        onBlur={() => {
-                            setTimeout(() => {
-                                setSuggestions([])
-
-                            }, 100)
-                        }}
-                    >
-                        {suggestion.data.attributes.name}
-
-                    </div>
-
-                )}
-
-
-
-
+                    }}
+                />
             </Form.Group>
+
+
+
+
+
+
+
 
 
         </>

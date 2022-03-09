@@ -14,7 +14,6 @@ import Co2Flightfootprint from '../Co2footprint/Co2Flightfootprint'
 const UserDetails = () => {
 
     const [userDetails, setUserDetails] = useState([])
-    console.log(userDetails)
     const [comment, setComment] = useState({
         author: "",
         profile: "",
@@ -25,6 +24,9 @@ const UserDetails = () => {
     const [loadingComment, setLoadingComment] = useState(false)
 
     const [commentsList, setCommentsList] = useState([])
+
+    const [totalSum, setTotalSum] = useState(0)
+    console.log(totalSum)
 
     const navigate = useNavigate()
 
@@ -92,15 +94,29 @@ const UserDetails = () => {
 
     }
 
-    const totalfootprint = (carFootprint, flightFootprint) => {
 
-        const totalkgFootprint = carFootprint + flightFootprint
 
-        console.log(totalkgFootprint)
 
-        return totalkgFootprint
+    const sumCar = []
+    console.log(sumCar)
 
+    const totalCarfootprint = (totalCarFootprint) => {
+
+        return sumCar.push(totalCarFootprint)
     }
+
+    const sumFlight = []
+    console.log(sumFlight)
+
+    const totalFlightfootprint = (totalFlightFootprint) => {
+
+        return sumFlight.push(totalFlightFootprint)
+    }
+
+
+
+
+
 
     return (
         <>
@@ -124,13 +140,16 @@ const UserDetails = () => {
                     <Container className='user-footprints'>
                         {<Row className='profileAndComments'>
                             <h3>Car Footprints</h3>
-                            <Co2Carfootprint profileId={userDetails._id} totalfootprint={totalfootprint} />
+
+                            <Co2Carfootprint profileId={userDetails._id} totalCarFootprint={totalCarfootprint} />
                         </Row>}
 
                         {<Row className='profileAndComments'>
+
                             <h3>Flight Footprints</h3>
-                            <Co2Flightfootprint profileId={userDetails._id} totalfootprint={totalfootprint} />
+                            <Co2Flightfootprint profileId={userDetails._id} totalFlightfootprint={totalFlightfootprint} />
                         </Row>}
+
                     </Container>
                 </Container>
 
