@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react'
 import footprintServiceBack from '../../services/footprintBack.service'
 import { AuthContext } from './../../context/auth.context'
 import { useContext } from 'react'
+import planeIcon from './plane-icon.png'
+import './Co2footprint.css'
 
 const Co2Flightfootprint = ({ flightFootprints }) => {
 
@@ -19,6 +21,11 @@ const Co2Flightfootprint = ({ flightFootprints }) => {
         })
     }
 
+    const formatDate = (Date) => {
+        const formated = Date.replace(/T.*/, '').split('-').reverse().join('-')
+        return formated
+    }
+
     return flightFootprints.length > 0 && (
 
 
@@ -29,30 +36,28 @@ const Co2Flightfootprint = ({ flightFootprints }) => {
 
 
                     <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src="https://zijderlaan.nl/media/k2/items/cache/3899dfe821816fbcb3db3e3b23f81585_XL.jpg" />
+                        <Card.Img className='fp-icon' variant="top" src={planeIcon} />
                         <Card.Body>
-                            <Card.Title>Your CO2 Flight Footprint</Card.Title>
-                            <Card.Text>
-                                {flightFootprint.carbon_kg}
+                            <Card.Title className='card-title'>Carbon Kg: {flightFootprint.carbon_kg}</Card.Title>
+                            <Card.Text className='card-title'>
+                                {formatDate(flightFootprint.createdAt)}
                             </Card.Text>
                         </Card.Body>
                         <ListGroup className="list-group-flush">
-                            <ListGroupItem>Distance: {flightFootprint.distance_value} {flightFootprint.distance_unit} </ListGroupItem>
+                            <ListGroupItem className='list-item'>Distance: <strong>{flightFootprint.distance_value} {flightFootprint.distance_unit}</strong> </ListGroupItem>
 
-                            <ListGroupItem>Passengers: {flightFootprint.passengers}</ListGroupItem>
-                            <ListGroupItem>
+                            <ListGroupItem className='list-item'>Passengers: <strong>{flightFootprint.passengers}</strong></ListGroupItem>
+                            <ListGroupItem className='list-item'>
                                 Round trip:
                                 <br>
                                 </br>
-                                {flightFootprint.legs[0].departure_airport}-{flightFootprint.legs[0].destination_airport}
+                                <strong>{flightFootprint.legs[0].departure_airport}-{flightFootprint.legs[0].destination_airport}</strong>
                                 <br>
                                 </br>
-                                {flightFootprint.legs[0].destination_airport}-
-                                {flightFootprint.legs[0].departure_airport}
+                                <strong>{flightFootprint.legs[0].destination_airport}-
+                                    {flightFootprint.legs[0].departure_airport}</strong>
 
                             </ListGroupItem>
-
-                            <ListGroupItem>{flightFootprint.vehicle_year}</ListGroupItem>
 
                         </ListGroup>
                         <Card.Body>

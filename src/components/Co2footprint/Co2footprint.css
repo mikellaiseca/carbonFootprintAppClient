@@ -1,3 +1,25 @@
 .footprints {
     margin-bottom: 40px;
 }
+
+.fp-icon {
+    height: 300px;
+    width: 100px;
+    overflow: hidden;
+    margin-left: 75px;
+}
+
+.list-item {
+    background-color: transparent;
+    color: white;
+}
+
+.list-item:hover {
+    background-color: #84bcca;
+    color: #486e6efa;
+    border-radius: 5%;
+}
+
+.card-title {
+    color: white;
+}

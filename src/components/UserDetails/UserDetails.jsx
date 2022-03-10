@@ -10,7 +10,6 @@ import './UserDetails.css'
 import CommentList from '../../components/CommentList/CommentList.jsx'
 import Co2Carfootprint from "../Co2footprint/Co2Carfootprint"
 import Co2Flightfootprint from '../Co2footprint/Co2Flightfootprint'
-import data from '../../data.json'
 import GraphicsUser from '../GraphicsUser/GraphicsUser'
 import footprintServiceBack from '../../services/footprintBack.service'
 
@@ -131,64 +130,51 @@ const UserDetails = () => {
 
             <Container className="user-section">
 
-                <Container className='main-info'>
-                    <Row className='profileAndComments'>
-
-                        <Col>
-                            <Card className="card" style={{ width: '18rem' }}>
-                                <Card.Img variant="top" src={userDetails.profileImg} />
-                                <Card.Body className="body">
-                                    <Card.Title>{userDetails.username}</Card.Title>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-
-                    </Row>
-
-                    <Container className='user-footprints'>
-                        {<Row className='profileAndComments'>
-                            <h3>Car Footprints</h3>
-
-                            <Co2Carfootprint carFootprints={carFootprints} profileId={userDetails._id} />
-                        </Row>}
-
-                        {<Row className='profileAndComments'>
-
-                            <h3>Flight Footprints</h3>
-                            <Co2Flightfootprint flightFootprints={flightFootprints} profileId={userDetails._id} />
-                        </Row>}
-
-                    </Container>
-                </Container>
-
-                <Row className='profileAndComments'>
-
-                    {(user?._id !== user_id) ?
-                        <Form onSubmit={handleSubmit}>
-
-                            <Form.Group className="comment-box" controlId="exampleForm.ControlTextarea1">
-                                <Form.Control as="textarea" rows={3} name="content" placeholder="Leave your comment" value={content} onChange={handleInputChange} />
-                            </Form.Group>
-                            {loadingComment && <Button variant="primary" type="submit">Post</Button>}
-                        </Form>
-
-                        :
-
-                        null
-
-                    }
-
-                </Row>
+                <h2>Welcome {userDetails.username}!</h2>
 
                 <Row>
-                    <GraphicsUser totalCarFootprints={totalCarFootprints} totalFlightFootprints={totalFlightFootprints} />
+
+                    <Col className='profileAndComments' >
+                        <Card className="profile-card" style={{ width: '18rem' }}>
+                            <Card.Img className='profile-image' variant="top" src={userDetails.profileImg} />
+                        </Card>
+                        {(user?._id !== user_id) ?
+                            <Form onSubmit={handleSubmit}>
+
+                                <Form.Group controlId="exampleForm.ControlTextarea1">
+                                    <Form.Control className="comment-box" as="textarea" rows={3} name="content" placeholder="Leave your comment" value={content} onChange={handleInputChange} />
+                                </Form.Group>
+                                {loadingComment && <Button variant="primary" type="submit" className='comment-button'>Post</Button>}
+                            </Form>
+
+                            :
+
+                            null
+
+                        }
+                        {commentsList?.map((comment, idx) => {
+                            return <CommentList key={idx} commentId={comment} />
+                        })}
+                    </Col>
+
+                    <Col sm={8}>
+                        <GraphicsUser totalCarFootprints={totalCarFootprints} totalFlightFootprints={totalFlightFootprints} />
+                        <Row>
+                            {<Col className='profileAndComments'>
+
+                                <Co2Carfootprint carFootprints={carFootprints} profileId={userDetails._id} />
+                            </Col>}
+
+                            {<Col className='profileAndComments'>
+
+                                <Co2Flightfootprint flightFootprints={flightFootprints} profileId={userDetails._id} />
+                            </Col>}
+                        </Row>
+                    </Col>
+
                 </Row>
 
-                <Row>
-                    {commentsList?.map((comment, idx) => {
-                        return <CommentList key={idx} commentId={comment} />
-                    })}
-                </Row>
+
 
             </Container>
         </>

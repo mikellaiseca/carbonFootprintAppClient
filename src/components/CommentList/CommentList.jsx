@@ -3,6 +3,7 @@ import { Button, Card } from "react-bootstrap"
 import { AuthContext } from "../../context/auth.context"
 import commentService from "../../services/comment.service"
 import usersService from "../../services/users.service"
+import './CommentList.css'
 
 const CommentList = (commentId) => {
 
@@ -24,7 +25,7 @@ const CommentList = (commentId) => {
 
     return (
         <>
-            <Card className='comments-card' style={{ width: '18rem' }}>
+            <Card className='comments-card'>
                 <Card.Body>
                     <Card.Title>{commentInfo.author?.username}</Card.Title>
                     <Card.Subtitle className="mb-2 text-muted">{formatDate(commentInfo.date)}</Card.Subtitle>

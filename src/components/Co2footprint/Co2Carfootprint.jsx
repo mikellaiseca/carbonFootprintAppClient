@@ -3,11 +3,11 @@ import { useEffect, useState } from 'react'
 import footprintServiceBack from '../../services/footprintBack.service'
 import { AuthContext } from './../../context/auth.context'
 import { useContext } from 'react'
+import carIcon from './car-icon.png'
 import './Co2footprint.css'
 
 
 const Co2Carfootprint = ({ carFootprints }) => {
-
 
     const { user } = useContext(AuthContext)
 
@@ -21,34 +21,33 @@ const Co2Carfootprint = ({ carFootprints }) => {
         })
     }
 
-
+    const formatDate = (Date) => {
+        const formated = Date.replace(/T.*/, '').split('-').reverse().join('-')
+        return formated
+    }
 
     return carFootprints.length > 0 && (
 
         carFootprints.map((carFootprint, i) => {
 
-
             return (
-
 
                 <Col key={i} className='footprints'>
 
                     <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src="https://zijderlaan.nl/media/k2/items/cache/3899dfe821816fbcb3db3e3b23f81585_XL.jpg" />
+                        <Card.Img className='fp-icon' variant="top" src={carIcon} />
                         <Card.Body>
-                            <Card.Title>Your CO2 Car Footprint</Card.Title>
-                            <Card.Text>
-                                {carFootprint.carbon_kg}
+                            <Card.Title className='card-title'>Carbon Kg: {carFootprint.carbon_kg}</Card.Title>
+                            <Card.Text className='card-title'>
+                                {formatDate(carFootprint.createdAt)}
                             </Card.Text>
 
                         </Card.Body>
                         <ListGroup className="list-group-flush">
-                            <ListGroupItem>{carFootprint.distance_value}</ListGroupItem>
-                            <ListGroupItem>{carFootprint.distance_unit}</ListGroupItem>
-                            <ListGroupItem>{carFootprint.vehicle_make}</ListGroupItem>
-                            <ListGroupItem>{carFootprint.vehicle_model}</ListGroupItem>
-
-                            <ListGroupItem>{carFootprint.vehicle_year}</ListGroupItem>
+                            <ListGroupItem className='list-item'>Distance: <strong>{carFootprint.distance_value} {carFootprint.distance_unit}</strong></ListGroupItem>
+                            <ListGroupItem className='list-item'>Maker: <strong>{carFootprint.vehicle_make}</strong></ListGroupItem>
+                            <ListGroupItem className='list-item'>Model: <strong>{carFootprint.vehicle_model}</strong></ListGroupItem>
+                            <ListGroupItem className='list-item'>Model Year: <strong>{carFootprint.vehicle_year}</strong></ListGroupItem>
 
                         </ListGroup>
                         <Card.Body>

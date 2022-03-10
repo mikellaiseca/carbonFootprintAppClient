@@ -1,27 +1,40 @@
 .comment-box {
-    margin-top: 20px;
-    width: 300px
+    width: 300px;
+    background-color: grey;
+    color: white;
 }
 
- .comments-card {
-     margin: 10px;
- }
+.textarea:focus .comment-box:focus {
+    outline-color: blue;
+}
 
 .user-section{
     margin-bottom: 50px;
+    margin-top: 50px;
 }
 
 .profileAndComments {
-    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.main-info {
+.comment-button {
     display: flex;
-    flex-direction: row;
+    margin-top: 10px;
+    margin-left: 10px;
 }
 
-.user-footprints {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+.profile-card {
+    border-radius: 50%;
+}
+.profile-image {
+    border-radius: 50%;
+
+}
+
+h2 {
+    font-size: 5em;
+    color: white;
+    font-weight: bolder;
 }
