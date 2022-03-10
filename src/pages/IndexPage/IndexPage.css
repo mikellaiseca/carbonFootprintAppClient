@@ -8,6 +8,9 @@ Letter colors:
 #c7eeedfa
 */
 
+img{
+    width: 100%;
+}
 
 body{
 background: linear-gradient(to bottom, #71B280, #134E5E);
@@ -34,9 +37,8 @@ padding: 10px;
 margin: 10px;   
       
 }
-
 .card{
-    background-color: #00d5ff34;;
+  background-color: #00d5ff34;
   border-radius: 10px;
   padding: 20px;
   max-height: 450px;
@@ -45,9 +47,85 @@ margin: 10px;
   justify-content: center;
 }
 
-.blockOne {    
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px;
+.card-block{
+background-color: #00d5ff34;
+border-radius: 10px;
+ max-height: 450px;
+ box-shadow: 1px 1px 8px rgba(255,255,255,.5);
+justify-content: center;
+}
+
+.button {
+color:#c7eeedfa ;
+font-weight: bold;
+margin: 10px;
+padding-right: 40px;
+padding-left: 40px;
+background-color: transparent ;
+text-transform: uppercase;
+border:1px solid rgba(255, 255, 255, 0.699); ;
+}
+
+.button:hover {
+background: rgba(255, 255, 255, 0.699);
+color: #045869fa;
+border: none;
+border-radius: 5px;
+box-shadow: 0 0 5px #fdfdfd,
+              0 0 25px #fdfdfd,
+              0 0 50px #fdfdfd,
+              0 0 100px #fdfdfd;
+
+}
+
+.button:focus {
+background: rgba(255, 255, 255, 0.699);
+color: #045869fa;
+border: none;
+border-radius: 5px;
+box-shadow: 0 0 5px #fdfdfd,
+              0 0 25px #fdfdfd,
+              0 0 50px #fdfdfd,
+              0 0 100px #fdfdfd;
+
+}
+
+.button:active {
+background: rgba(255, 255, 255, 0.699);
+color: #045869fa;
+border: none;
+border-radius: 5px;
+box-shadow: 0 0 5px #fdfdfd,
+              0 0 25px #fdfdfd,
+              0 0 50px #fdfdfd,
+              0 0 100px #fdfdfd;
+
+}
+
+.logo-images{
+    max-width: 80%;
+}
+
+.mobile-image {
+    border-left: 2px solid rgba(255, 255, 255, 0.699); 
+}
+
+.container-margin-bottom{
+    margin-bottom: 100px;
+}
+
+.text-align-left{
+    text-align: left;
+}
+
+.carouselItem{
+    border-radius: 10px;
+}
+.carousel img {
+    height: 250px;
    
+}
+
+.carousel-inner {
+    border-radius: 10px !important;
 }
