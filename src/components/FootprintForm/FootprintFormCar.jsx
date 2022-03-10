@@ -45,27 +45,29 @@ const FootprintFormCar = () => {
     }
 
     return (
-        <Container>
+        <Container className="footprintFormCar">
+            <h3>Vehicle Footprint</h3>
+
             <Form onSubmit={handleSubmit} className="form">
 
-                <Form.Group className="mb-3">
-                    <Form.Label>Distance (km)</Form.Label>
-                    <Form.Control type="text" name="distance_value" value={footprintFormCar.distance_value} onChange={handleInputChange} />
+                <Form.Group className="mb-3 formLabel">
+                    <Form.Label className="formLabel">Distance (km)</Form.Label>
+                    <Form.Control className='input' type="text" name="distance_value" value={footprintFormCar.distance_value} onChange={handleInputChange} />
                 </Form.Group>
 
 
                 <FootprintFormCarModel findModelId={findModelId} />
 
 
-                <Form.Group className="mb-3">
+                <Form.Group className="mb-3  formLabel ">
                     <Form.Label>Vehicle model ID</Form.Label>
 
-                    <Form.Control type="text" name="vehicle_model_id" value={footprintFormCar.vehicle_model_id} onChange={handleInputChange}
+                    <Form.Control className='input' type="text" name="vehicle_model_id" value={footprintFormCar.vehicle_model_id} onChange={handleInputChange}
 
                     />
                 </Form.Group>
 
-                <Button variant="dark" type="submit" style={{ width: '100%' }}>Calculate</Button>
+                <Button className='button' variant="dark" type="submit" style={{ width: '100%' }}>Calculate</Button>
 
             </Form>
         </Container>

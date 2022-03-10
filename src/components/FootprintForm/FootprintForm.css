@@ -10,3 +10,11 @@
 .suggestions:hover{
     background-color: beige;
 }
+
+select option {
+    background-color: #4b8972;
+}
+
+.MuiAutocomplete-option[data-focus="true"] {
+    background: #000;
+}

@@ -7,9 +7,6 @@ import niceRiver from './images/river_nice.jpg'
 import mistForest from './images/forest_mist.jpg'
 import waterfall from './images/waterfall.jpg'
 import forest_lake from './images/forest_lake.jpg'
-
-
-
 import './IndexPage.css'
 
 const IndexPage = () => {
@@ -21,6 +18,7 @@ const IndexPage = () => {
 
                 <h1>You can make a difference, you can reduce your Co2 Footprint</h1>
 
+
             </Row>
 
             <Carousel className="carousel">
@@ -31,8 +29,8 @@ const IndexPage = () => {
                         alt="First slide"
                     />
                     <Carousel.Caption>
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        <h3></h3>
+                        <p>.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item interval={1500}>
@@ -42,8 +40,8 @@ const IndexPage = () => {
                         alt="Second slide"
                     />
                     <Carousel.Caption>
-                        <h3>Second slide label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h3></h3>
+                        <p></p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item interval={1500}>
@@ -53,8 +51,8 @@ const IndexPage = () => {
                         alt="Third slide"
                     />
                     <Carousel.Caption>
-                        <h3>Third slide label</h3>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        <h3></h3>
+                        <p></p>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
@@ -62,11 +60,11 @@ const IndexPage = () => {
             <Row className="">
 
                 <Col className="card col">
-                    <h2>Live a low-carbon lifestyle </h2>
+                    <h1>Live a low-carbon lifestyle </h1>
                 </Col>
 
                 <Col className="card col">
-                    <h2>Check the latest news about Co2</h2>
+                    <h1>Check the latest news about Co2</h1>
                     <Link to='/news'>
                         <Button className="button">
                             News
@@ -88,23 +86,27 @@ const IndexPage = () => {
 
             </Row>
             <Row>
-                <Row className="block text-align-left">
+                <Row className="block text-align-left white-border">
                     <h3>Integrated Climate Action</h3>
+                    <hr></hr>
                 </Row>
                 <Row className="block text-align-left">
                     <h2>We bring together everything that’s required to integrate climate into your customer experiences.</h2>
                 </Row>
                 <Row className="block">
                     <Col>
-                        <Row>
+                        <Row className="happy-p">
                             <Col sm={12}>
-                                I occupy 12
+                                <strong><p>😁 Happy Customers, Happy Planet</p></strong>
+                                <p className="justify-content">We know that when you put customers at the center of climate action, the impact becomes greater. So we work with you to integrate climate into modern, market-leading customer experiences.</p>
                             </Col>
                             <Col sm={12}>
-                                I occupy 12
+                                <strong><p>📂 Optimized</p></strong>
+                                <p className="justify-content">Our RESTful API enables partners to optimize climate integrations, flexibility adjusting for any customer type, market, or compliance specification.</p>
                             </Col>
                             <Col sm={12}>
-                                I occupy 12
+                                <strong><p>🌍Global</p></strong>
+                                <p className="justify-content">Climate change is a global challenge. Our integrations support secure climate-oriented customer experiences in 40+ languages, all currencies and major payment methods, ensuring you can enable your customers wherever they are.</p>
                             </Col>
                         </Row>
                     </Col>

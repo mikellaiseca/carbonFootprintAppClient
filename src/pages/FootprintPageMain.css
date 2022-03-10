@@ -1,0 +1,20 @@
+.footprintMain {
+margin-top: 50px;
+padding: 10px;
+    
+}
+
+.footprintMain .row {
+    margin: 10px;
+}
+
+.footprintMain .row h1 {
+    margin-bottom: 50px;
+}
+
+.footprintMain .row h3 {
+    font-style: italic;
+    border-radius: 5px;
+    box-shadow: 1px 1px 8px rgba(255,255,255,.5);
+    padding: 15px
+}

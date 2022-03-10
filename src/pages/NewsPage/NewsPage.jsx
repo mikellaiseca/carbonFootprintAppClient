@@ -1,7 +1,7 @@
 import APIHandler from "../../services/news.service"
-import { useState, useEffect, useContext } from "react"
-import { Card, Button, Container, Row, Col } from 'react-bootstrap'
-import { Link } from "react-router-dom"
+import { useState, useEffect } from "react"
+import { Card, Button, Container, Row, Col, Spinner } from 'react-bootstrap'
+
 import './NewsPage.css'
 
 
@@ -25,7 +25,9 @@ const NewsPage = () => {
     }
 
 
-    return !news ? (<h1>Cargando</h1>) : (
+    return !news ? (<Spinner animation="border" role="status">
+        <span className="visually-hidden">Loading...</span>
+    </Spinner>) : (
         <>
             <Container className="news-section">
                 <Row xs={1} md={3} className="g-4">

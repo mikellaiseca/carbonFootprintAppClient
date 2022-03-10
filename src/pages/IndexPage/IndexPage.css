@@ -15,8 +15,8 @@ img{
 body{
 background: linear-gradient(to bottom, #71B280, #134E5E);
 background-attachment: fixed;
-color:#c7eeedfa ;
-font-family: 'Hind Siliguri', sans-serif;;
+color:white ;
+font-family: 'Hind Siliguri', sans-serif;
 }
 
 .container{
@@ -50,17 +50,16 @@ margin: 10px;
 .card-block{
 background-color: #00d5ff34;
 border-radius: 10px;
- max-height: 450px;
- box-shadow: 1px 1px 8px rgba(255,255,255,.5);
+box-shadow: 1px 1px 8px rgba(255,255,255,.5);
 justify-content: center;
 }
 
 .button {
+font-size: 2em;
 color:#c7eeedfa ;
 font-weight: bold;
-margin: 10px;
-padding-right: 40px;
-padding-left: 40px;
+margin: 20px;
+padding: 10px 40px 10px 40px ;
 background-color: transparent ;
 text-transform: uppercase;
 border:1px solid rgba(255, 255, 255, 0.699); ;
@@ -102,11 +101,13 @@ box-shadow: 0 0 5px #fdfdfd,
 
 }
 
+
+
 .logo-images{
     max-width: 80%;
 }
 
-.mobile-image {
+.happy-p {
     border-left: 2px solid rgba(255, 255, 255, 0.699); 
 }
 
@@ -128,4 +129,20 @@ box-shadow: 0 0 5px #fdfdfd,
 
 .carousel-inner {
     border-radius: 10px !important;
+}
+
+.white-border{
+    margin-right: 0px;
+    padding-right: 0px;
+    margin-top: 50px;
+    text-transform: uppercase;
+    }
+
+hr{
+   border: 5px solid #00151a ;
+   color: #01181d;
+}
+
+.justify-content{
+    text-align: justify;
 }

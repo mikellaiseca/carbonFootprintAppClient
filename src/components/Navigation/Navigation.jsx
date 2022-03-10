@@ -38,7 +38,7 @@ const Navigation = () => {
                 </>
                 :
                 <>
-                  <NavLink className="navbar-links" to="/car-form">
+                  <NavLink className="navbar-links" to="/footprint-form">
                     <Nav.Link as="span">Footprint Calculator</Nav.Link>
                   </NavLink>
                   <NavLink className="navbar-links" to="/users">
