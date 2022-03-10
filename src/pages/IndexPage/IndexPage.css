@@ -1,27 +1,48 @@
+/* //Colores corporativos:
+#71B280
+#134E5E 
+Card colors:
+#34908c
+#00d5ff34
+Letter colors: 
+#c7eeedfa
+*/
+
+
 body{
-background: rgba(2, 0, 36, 0.192);
-background: radial-gradient(circle, rgba(2, 0, 36, 0.171) 0%, rgba(12, 12, 125, 0.178) 35%, 
-rgba(0, 213, 255, 0.199) 100%);
+background: linear-gradient(to bottom, #71B280, #134E5E);
+background-attachment: fixed;
+color:#c7eeedfa ;
+font-family: 'Hind Siliguri', sans-serif;;
 }
 
 .container{
-    text-align: center;
+text-align: center;
 }
 
 .block {
-    background-color: #00d5ff34;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px;
+/* background-color: #00d5ff34; */
+border-radius: 5px;
+padding: 10px;
+margin: 10px;
 }
 
 .col{
-    background-color: #00d5ff34;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px;   
-   
-    
+/* background-color: #00d5ff34; */
+border-radius: 5px;
+padding: 10px;
+margin: 10px;   
+      
+}
+
+.card{
+    background-color: #00d5ff34;;
+  border-radius: 10px;
+  padding: 20px;
+  max-height: 450px;
+  margin: 30px 10px;
+  box-shadow: 1px 1px 8px rgba(255,255,255,.5);
+  justify-content: center;
 }
 
 .blockOne {    
