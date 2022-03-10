@@ -9,7 +9,6 @@ const CommentList = (commentId) => {
     const { user } = useContext(AuthContext)
     const commentInfo = commentId.commentId
 
-
     const deleteComment = () => {
 
         commentService
@@ -17,15 +16,20 @@ const CommentList = (commentId) => {
             .then(() => console.log('comentario eliminado'))
             .catch(err => console.log(err))
     }
+
+    const formatDate = (Date) => {
+        const formated = Date.replace(/T.*/, '').split('-').reverse().join('-')
+        return formated
+    }
+
     return (
         <>
             <Card className='comments-card' style={{ width: '18rem' }}>
                 <Card.Body>
                     <Card.Title>{commentInfo.author?.username}</Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">{commentInfo.date}</Card.Subtitle>
+                    <Card.Subtitle className="mb-2 text-muted">{formatDate(commentInfo.date)}</Card.Subtitle>
                     <p>{commentInfo.content}</p>
                     {(user._id === commentInfo.profile._id) ? (<Button variant="primary" type="submit" onClick={deleteComment}>Delete</Button>) : null}
-                    {(user._id === commentInfo.author._id) ? (<Button variant="primary" type="submit">Edit</Button>) : null}
                 </Card.Body>
             </Card>
         </>
