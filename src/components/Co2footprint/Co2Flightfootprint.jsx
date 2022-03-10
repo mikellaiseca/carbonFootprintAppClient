@@ -4,30 +4,9 @@ import footprintServiceBack from '../../services/footprintBack.service'
 import { AuthContext } from './../../context/auth.context'
 import { useContext } from 'react'
 
-const Co2Flightfootprint = ({ profileId, totalFlightfootprint }) => {
+const Co2Flightfootprint = ({ flightFootprints }) => {
 
-    const [flightFootprints, setFlightFootprint] = useState([])
     const { user } = useContext(AuthContext)
-
-    useEffect(() => {
-
-        checkThereIsAprofile()
-
-    }, [profileId])
-
-    const checkThereIsAprofile = () => {
-
-        return profileId?.length > 0 && loadCo2footprints()
-
-    }
-
-    const loadCo2footprints = () => {
-
-        footprintServiceBack
-            .getFlightCustomFootprint(profileId)
-            .then(({ data }) => setFlightFootprint(data))
-            .catch(err => console.log(err))
-    }
 
     const deleteFootprintFlight = () => {
 
@@ -48,13 +27,13 @@ const Co2Flightfootprint = ({ profileId, totalFlightfootprint }) => {
 
                 < Col key={i}>
 
+
                     <Card style={{ width: '18rem' }}>
                         <Card.Img variant="top" src="https://zijderlaan.nl/media/k2/items/cache/3899dfe821816fbcb3db3e3b23f81585_XL.jpg" />
                         <Card.Body>
                             <Card.Title>Your CO2 Flight Footprint</Card.Title>
                             <Card.Text>
                                 {flightFootprint.carbon_kg}
-                                {totalFlightfootprint(flightFootprint.carbon_kg)}
                             </Card.Text>
                         </Card.Body>
                         <ListGroup className="list-group-flush">

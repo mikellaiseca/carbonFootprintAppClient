@@ -6,35 +6,14 @@ import { useContext } from 'react'
 import './Co2footprint.css'
 
 
-const Co2Carfootprint = ({ profileId, totalCarFootprint }) => {
+const Co2Carfootprint = ({ carFootprints }) => {
 
-    const [carFootprints, setCarFootprint] = useState([])
+
     const { user } = useContext(AuthContext)
-
-    useEffect(() => {
-
-        checkThereIsAprofile()
-
-    }, [profileId])
-
-    const checkThereIsAprofile = () => {
-
-        return profileId?.length > 0 && loadCo2footprints()
-
-    }
-
-    const loadCo2footprints = () => {
-
-        footprintServiceBack
-            .getCarCustomFootprint(profileId)
-            .then(({ data }) => setCarFootprint(data))
-            .catch(err => console.log(err))
-    }
 
     const deleteFootprintCar = () => {
 
         carFootprints.map(carFootprint => {
-
             footprintServiceBack
                 .deleteFootprintCar(carFootprint._id)
                 .then(() => console.log('footprint eliminada'))
@@ -42,12 +21,15 @@ const Co2Carfootprint = ({ profileId, totalCarFootprint }) => {
         })
     }
 
-    return carFootprints.length > 0 && (
 
+
+    return carFootprints.length > 0 && (
 
         carFootprints.map((carFootprint, i) => {
 
+
             return (
+
 
                 <Col key={i} className='footprints'>
 
@@ -57,8 +39,8 @@ const Co2Carfootprint = ({ profileId, totalCarFootprint }) => {
                             <Card.Title>Your CO2 Car Footprint</Card.Title>
                             <Card.Text>
                                 {carFootprint.carbon_kg}
-                                {totalCarFootprint(carFootprint.carbon_kg)}
                             </Card.Text>
+
                         </Card.Body>
                         <ListGroup className="list-group-flush">
                             <ListGroupItem>{carFootprint.distance_value}</ListGroupItem>
@@ -74,11 +56,8 @@ const Co2Carfootprint = ({ profileId, totalCarFootprint }) => {
                         </Card.Body>
                     </Card>
                 </Col >
-
-
             )
         })
-
     )
 }
 

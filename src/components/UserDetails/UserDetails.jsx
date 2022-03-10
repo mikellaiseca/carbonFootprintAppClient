@@ -12,6 +12,8 @@ import Co2Carfootprint from "../Co2footprint/Co2Carfootprint"
 import Co2Flightfootprint from '../Co2footprint/Co2Flightfootprint'
 import data from '../../data.json'
 import GraphicsUser from '../GraphicsUser/GraphicsUser'
+import footprintServiceBack from '../../services/footprintBack.service'
+
 
 const UserDetails = () => {
 
@@ -27,8 +29,12 @@ const UserDetails = () => {
 
     const [commentsList, setCommentsList] = useState([])
 
-    const [totalSum, setTotalSum] = useState(0)
-    console.log(totalSum)
+    const [carFootprints, setCarFootprint] = useState([])
+    console.log(carFootprints)
+    const [totalCarFootprints, setTotalCarFootprint] = useState([])
+
+    const [flightFootprints, setFlightFootprint] = useState([])
+    const [totalFlightFootprints, setTotalFlightFootprint] = useState([])
 
     const navigate = useNavigate()
 
@@ -44,16 +50,40 @@ const UserDetails = () => {
     }, [])
 
     useEffect(() => {
+        userDetails._id && loadCarfootprints()
+        userDetails._id && loadFlightfootprints()
+    }, [userDetails])
+
+    const loadCarfootprints = () => {
+        footprintServiceBack
+            .getCarCustomFootprint(userDetails._id)
+            .then(({ data }) => {
+                let total = data.reduce((acc, elm) => acc + elm.carbon_kg, 0)
+                setCarFootprint(data)
+                setTotalCarFootprint(total)
+            })
+            .catch(err => console.log(err))
+    }
+
+    const loadFlightfootprints = () => {
+        footprintServiceBack
+            .getFlightCustomFootprint(userDetails._id)
+            .then(({ data }) => {
+                let total = data.reduce((acc, elm) => acc + elm.carbon_kg, 0)
+                setFlightFootprint(data)
+                setTotalFlightFootprint(total)
+            })
+            .catch(err => console.log(err))
+    }
+
+    useEffect(() => {
         comment.content.length > 0 ? setLoadingComment(true) : setLoadingComment(false)
     }, [comment])
 
     const loadUserDetails = () => {
         usersService
             .getOneUser(user_id)
-            .then(({ data }) => {
-                setUserDetails(data)
-            })
-            .then()
+            .then(({ data }) => setUserDetails(data))
             .catch(err => console.log(err))
     }
 
@@ -96,30 +126,6 @@ const UserDetails = () => {
 
     }
 
-
-
-
-    const sumCar = []
-    console.log(sumCar)
-
-    const totalCarfootprint = (totalCarFootprint) => {
-
-        return sumCar.push(totalCarFootprint)
-    }
-
-    const sumFlight = []
-    console.log(sumFlight)
-
-    const totalFlightfootprint = (totalFlightFootprint) => {
-
-        return sumFlight.push(totalFlightFootprint)
-    }
-
-
-
-
-
-
     return (
         <>
 
@@ -143,13 +149,13 @@ const UserDetails = () => {
                         {<Row className='profileAndComments'>
                             <h3>Car Footprints</h3>
 
-                            <Co2Carfootprint profileId={userDetails._id} totalCarFootprint={totalCarfootprint} />
+                            <Co2Carfootprint carFootprints={carFootprints} profileId={userDetails._id} />
                         </Row>}
 
                         {<Row className='profileAndComments'>
 
                             <h3>Flight Footprints</h3>
-                            <Co2Flightfootprint profileId={userDetails._id} totalFlightfootprint={totalFlightfootprint} />
+                            <Co2Flightfootprint flightFootprints={flightFootprints} profileId={userDetails._id} />
                         </Row>}
 
                     </Container>
@@ -175,7 +181,7 @@ const UserDetails = () => {
                 </Row>
 
                 <Row>
-                    <GraphicsUser data={data} />
+                    <GraphicsUser totalCarFootprints={totalCarFootprints} totalFlightFootprints={totalFlightFootprints} />
                 </Row>
 
                 <Row>

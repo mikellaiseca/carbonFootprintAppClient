@@ -1,6 +1,7 @@
 import FootprintFormFlight from "../components/FootprintForm/FootprintFormFlight"
 
 
+
 const FootprintPageFlight = () => {
 
     return (
