@@ -3,6 +3,8 @@ import { useState, useEffect, useContext } from "react"
 import { Card, Button, Container, Row, Col } from 'react-bootstrap'
 import { Link } from "react-router-dom"
 import './NewsPage.css'
+import Footer from '../../components/Footer/Footer'
+
 
 
 const NewsPage = () => {
@@ -28,19 +30,21 @@ const NewsPage = () => {
     return !news ? (<h1>Cargando</h1>) : (
         <>
             <Container className="news-section">
-                <Row xs={1} md={3} className="g-4">
+
+                <h2>Latest news</h2>
+                <Row xs={1} md={5} className="g-4">
                     {news.map((elm, i) => {
                         return (
-                            <Col key={i}>
-                                <Card className="card" style={{ width: '18rem' }}>
-                                    <Card.Img variant="top" src={elm.urlToImage} />
+                            <Col className="card-news" key={i}>
+                                <Card style={{ width: '18rem' }}>
+                                    <Card.Img className="news-img" variant="top" src={elm.urlToImage} />
                                     <Card.Body className="body">
                                         <Card.Title>{elm.title}</Card.Title>
                                         <Card.Text className="text">
                                             {elm.description}
                                         </Card.Text>
 
-                                        <Button role='link' href={elm.url} as='a' target="_blank"
+                                        <Button className="button" role='link' href={elm.url} as='a' target="_blank"
                                             variant="primary">Continue reading</Button>
                                     </Card.Body>
                                 </Card>
@@ -54,6 +58,7 @@ const NewsPage = () => {
                 </Row>
 
             </Container>
+            <Footer />
         </>
     )
 }

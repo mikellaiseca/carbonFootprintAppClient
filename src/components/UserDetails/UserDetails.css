@@ -1,12 +1,21 @@
 .comment-box {
     width: 300px;
-    background-color: grey;
+    background-color: transparent;
     color: white;
 }
 
-.textarea:focus .comment-box:focus {
-    outline-color: blue;
+.comment-box:focus {
+    background-color: transparent;
+    color: white;
+    box-shadow: none;
+    border-color: white;
+    box-shadow: 1px 1px 8px rgba(255,255,255,.5);
 }
+
+.comment-box::placeholder {
+    color: #c7eeedfa;
+}
+
 
 .user-section{
     margin-bottom: 50px;
@@ -30,7 +39,6 @@
 }
 .profile-image {
     border-radius: 50%;
-
 }
 
 h2 {

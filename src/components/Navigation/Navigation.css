@@ -8,4 +8,13 @@
 
 .full-navbar {
     margin-bottom: 20px;
+    background-color: white;
+}
+
+.logo-app-nav {
+    width: 80%;
+}
+
+.links-navbar {
+    color: black !important;
 }

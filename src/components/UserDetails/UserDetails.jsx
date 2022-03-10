@@ -160,13 +160,11 @@ const UserDetails = () => {
                     <Col sm={8}>
                         <GraphicsUser totalCarFootprints={totalCarFootprints} totalFlightFootprints={totalFlightFootprints} />
                         <Row>
-                            {<Col className='profileAndComments'>
-
+                            {<Col>
                                 <Co2Carfootprint carFootprints={carFootprints} profileId={userDetails._id} />
                             </Col>}
 
-                            {<Col className='profileAndComments'>
-
+                            {<Col>
                                 <Co2Flightfootprint flightFootprints={flightFootprints} profileId={userDetails._id} />
                             </Col>}
                         </Row>

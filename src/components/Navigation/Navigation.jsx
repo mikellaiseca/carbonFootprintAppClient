@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 import { AuthContext } from './../../context/auth.context'
 import { useParams } from 'react-router-dom'
 import './Navigation.css'
+import logo from './logo.png'
 
 const Navigation = () => {
 
@@ -15,13 +16,13 @@ const Navigation = () => {
     <Navbar className='full-navbar' bg="light" expand="lg">
       <Container>
         <NavLink className="navbar-links" to='/'>
-          <Navbar.Brand as="span">Co2</Navbar.Brand>
+          <img className='logo-app-nav' src={logo} />
         </NavLink>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="container-fluid">
             <NavLink className="navbar-links" to='/news'>
-              <Nav.Link as='span'>News</Nav.Link>
+              <Nav.Link className='links-navbar' as='span'>News</Nav.Link>
             </NavLink>
 
             {
@@ -29,24 +30,24 @@ const Navigation = () => {
                 <>
                   <Nav className='ms-auto'>
                     <NavLink className="navbar-links" to="/sign-up">
-                      <Nav.Link as="span">Sign up</Nav.Link>
+                      <Nav.Link className='links-navbar' as="span">Sign up</Nav.Link>
                     </NavLink>
                     <NavLink className="navbar-links" to="/log-in">
-                      <Nav.Link as="span">Log in</Nav.Link>
+                      <Nav.Link className='links-navbar' as="span">Log in</Nav.Link>
                     </NavLink>
                   </Nav>
                 </>
                 :
                 <>
                   <NavLink className="navbar-links" to="/car-form">
-                    <Nav.Link as="span">Footprint Calculator</Nav.Link>
+                    <Nav.Link className='links-navbar' as="span">Footprint Calculator</Nav.Link>
                   </NavLink>
                   <NavLink className="navbar-links" to="/users">
-                    <Nav.Link as="span">Our Community</Nav.Link>
+                    <Nav.Link className='links-navbar' as="span">Our Community</Nav.Link>
                   </NavLink>
                   <Nav className='ms-auto'>
                     <NavLink className="navbar-links" to={`/users/${user?._id}`}>
-                      <Nav.Link as="span">¡Hi, {user?.username}!</Nav.Link>
+                      <Nav.Link className='links-navbar' as="span">¡Hi, {user?.username}!</Nav.Link>
                     </NavLink>
                     <Nav.Link className='log-out' as="span" onClick={logOutUser}>Logout</Nav.Link>
                   </Nav>

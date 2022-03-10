@@ -2,7 +2,7 @@ import usersService from '../../services/users.service'
 import { useEffect, useState } from 'react'
 import { Card, Button, Container, Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-
+import './UsersList.css'
 
 const UsersList = () => {
 
@@ -19,16 +19,17 @@ const UsersList = () => {
             .catch(err => console.log(err))
 
     }
+
     return (
         <>
 
             <Container className="users-section">
-                <Row xs={1} md={3} className="g-4">
+                <Row xs={1} md={5} className="g-4">
                     {users.map((elm, i) => {
                         return (
-                            <Col key={i}>
+                            <Col className='users-list' key={i}>
                                 <Card className="card" style={{ width: '18rem' }}>
-                                    <Card.Img variant="top" src={elm.profileImg} />
+                                    <Card.Img className='profile-image' variant="top" src={elm.profileImg} />
                                     <Card.Body className="body">
                                         <Card.Title>{elm.username}</Card.Title>
                                         <Link to={`/users/${elm._id}`}>

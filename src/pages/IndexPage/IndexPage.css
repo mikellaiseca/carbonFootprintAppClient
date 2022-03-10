@@ -123,9 +123,14 @@ box-shadow: 0 0 5px #fdfdfd,
 }
 .carousel img {
     height: 250px;
-   
+    object-fit: cover;
+    opacity: 0.8;
 }
 
 .carousel-inner {
     border-radius: 10px !important;
+}
+
+.carousel-caption {
+    text-shadow: black 1px 0 10px;
 }
