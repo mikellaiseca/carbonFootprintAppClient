@@ -8,8 +8,7 @@ import TextField from '@material-ui/core/TextField'
 const TestFilter = ({ models, findModelId }) => {
 
     const [allModels, setAllModels] = useState([])
-    console.log(allModels)
-    console.log(models)
+
     const [q, setQ] = useState(null)
 
     const onSugestHandler = (selectedModel) => {
@@ -46,7 +45,7 @@ const TestFilter = ({ models, findModelId }) => {
                     renderInput={suggestion => (
                         <TextField {...suggestion} label="Vehicle Model" variant="outlined" value={q} />
                     )}
-                    getOptionLabel={suggestion => suggestion.data.attributes.name}
+                    getOptionLabel={suggestion => suggestion.data.attributes.name + " " + suggestion.data.attributes.year}
                     onChange={(_event, newModel) => {
                         onSugestHandler(newModel)
 

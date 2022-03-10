@@ -1,7 +1,10 @@
 import footprintServiceBack from '../../services/footprintBack.service'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
-import { Form, Button } from 'react-bootstrap'
+import { Form, Button, Container } from 'react-bootstrap'
+import Autocomplete from '@material-ui/lab/Autocomplete'
+import TextField from '@material-ui/core/TextField'
+import airportData from '../../airpots.data.json'
 
 const FootprintFormFlight = () => {
 
@@ -22,6 +25,25 @@ const FootprintFormFlight = () => {
         })
     }
 
+    const findDeparture = (id) => {
+        setFootprintForm({
+            ...footprintForm,
+            departure_airport: id.iata_code
+        })
+        console.log(footprintForm)
+
+    }
+
+    const findDestination = (id) => {
+
+        setFootprintForm({
+            ...footprintForm,
+            destination_airport: id.iata_code
+        })
+        console.log(footprintForm)
+
+    }
+
     function handleSubmit(e) {
 
         e.preventDefault()
@@ -29,13 +51,14 @@ const FootprintFormFlight = () => {
         footprintServiceBack
             .getFlightFootprint(footprintForm)
             .then(() => {
+
                 navigate('/')
             })
 
     }
 
     return (
-        <>
+        <Container>
             <Form onSubmit={handleSubmit}>
 
                 <Form.Group className="mb-3">
@@ -43,19 +66,34 @@ const FootprintFormFlight = () => {
                     <Form.Control type="text" name="passengers" value={footprintForm.passengers} onChange={handleInputChange} />
                 </Form.Group>
 
-                <Form.Group className="mb-3">
-                    <Form.Label>Departure Airport</Form.Label>
-                    <Form.Control type="text" name="departure_airport" value={footprintForm.departure_airport} onChange={handleInputChange} />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Destination Airport</Form.Label>
-                    <Form.Control type="text" name="destination_airport" value={footprintForm.destination_airport} onChange={handleInputChange} />
-                </Form.Group>
+                <Autocomplete
+                    options={airportData}
+                    renderInput={suggestion => (
+                        <TextField {...suggestion} label="departure_airport" variant="outlined" />
+                    )}
+                    getOptionLabel={suggestion => suggestion.iata_code + " " + suggestion.airport_name + " " + "(" + suggestion.country_name + ")"}
+                    onChange={(_event, newDepartureAirport) => {
+                        findDeparture(newDepartureAirport)
+                    }}
+
+                />
+
+                <Autocomplete
+                    options={airportData}
+                    renderInput={suggestion => (
+                        <TextField {...suggestion} label="destination_airport" variant="outlined" />
+                    )}
+                    getOptionLabel={suggestion => suggestion.iata_code + " " + suggestion.airport_name + " " + "(" + suggestion.country_name + ")"}
+                    onChange={(_event, newDestinationAirport) => {
+                        findDestination(newDestinationAirport)
+                    }}
+
+                />
 
                 <Button variant="dark" type="submit" style={{ width: '100%' }}>Calculate</Button>
 
             </Form>
-        </>
+        </Container>
     )
 
 

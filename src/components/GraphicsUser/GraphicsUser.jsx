@@ -151,6 +151,4 @@ const MyResponsivePie = ({ totalCarFootprints, totalFlightFootprints }) => {
     )
 }
 
-
-
 export default MyResponsivePie
