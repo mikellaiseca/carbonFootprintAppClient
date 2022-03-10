@@ -80,8 +80,6 @@ const FootprintFormCarModel = ({ findModelId }) => {
                 </Form.Select >
             </Form.Group>
 
-
-
             <TestFilter models={data} findModelId={findModelId} />
 
 

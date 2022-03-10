@@ -56,16 +56,16 @@ const FootprintFormCar = () => {
                 </Form.Group>
 
 
-                <FootprintFormCarModel findModelId={findModelId} />
 
-
-                <Form.Group className="mb-3  formLabel ">
+                <Form.Group className="mb-3  formLabel red ">
                     <Form.Label>Vehicle model ID</Form.Label>
 
-                    <Form.Control className='input' type="text" name="vehicle_model_id" value={footprintFormCar.vehicle_model_id} onChange={handleInputChange}
+                    <Form.Control placeholder='This input will autofill' className='input-red' type="text" name="vehicle_model_id" value={footprintFormCar.vehicle_model_id} onChange={handleInputChange}
 
                     />
                 </Form.Group>
+
+                <FootprintFormCarModel findModelId={findModelId} />
 
                 <Button className='button' variant="dark" type="submit" style={{ width: '100%' }}>Calculate</Button>
 

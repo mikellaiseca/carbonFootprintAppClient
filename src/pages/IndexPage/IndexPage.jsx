@@ -102,10 +102,6 @@ const IndexPage = () => {
 
                             <Row className="happy-p">
                                 <Col sm={12}>
-                                    <strong><p>😁 Happy Customers, Happy Planet</p></strong>
-                                    <p className="justify-content">We know that when you put customers at the center of climate action, the impact becomes greater. So we work with you to integrate climate into modern, market-leading customer experiences.</p>
-                                </Col>
-                                <Col sm={12}>
                                     <strong><p>📂 Optimized</p></strong>
                                     <p className="justify-content">Our RESTful API enables partners to optimize climate integrations, flexibility adjusting for any customer type, market, or compliance specification.</p>
                                 </Col>

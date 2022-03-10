@@ -44,8 +44,7 @@ background-color: transparent;
   margin-top: 10px;
   font-size: 16px;
   color: white !important;
-  border-color: white !important;
-
+  border-color: white
 }
 
 .footprintFormCar .input:focus {
@@ -79,5 +78,17 @@ box-shadow: 0 0 5px #fdfdfd,
 .footprintFormCar .autcomplete-flight{
     margin: 20px;
 }
+
+.footprintFormCar .input-red{
+     border-color: red !important;
+    background-color: transparent
+   
+}
+
+.footprintFormCar .input-red::placeholder{
+    color:rgb(141, 29, 29) !important;  
+    font-style: italic;
+}
+
 
 

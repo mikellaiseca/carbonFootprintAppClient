@@ -33,7 +33,7 @@ const NewsPage = () => {
             <Container className="news-section">
 
                 <h2>Latest news</h2>
-                <Row xs={1} md={5} className="g-4">
+                <Row className="g-4">
                     {news.map((elm, i) => {
                         return (
                             <Col className="card-news " key={i}>

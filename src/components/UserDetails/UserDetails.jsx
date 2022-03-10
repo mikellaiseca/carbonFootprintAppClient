@@ -144,7 +144,7 @@ const UserDetails = () => {
                                 <Form.Group controlId="exampleForm.ControlTextarea1">
                                     <Form.Control className="comment-box" as="textarea" rows={3} name="content" placeholder="Leave your comment" value={content} onChange={handleInputChange} />
                                 </Form.Group>
-                                {loadingComment && <Button className='button-sm' variant="primary" type="submit" className='comment-button'>Post</Button>}
+                                {loadingComment && <Button variant="primary" type="submit" className='button-sm comment-button'>Post</Button>}
                             </Form>
 
                             :
@@ -158,13 +158,15 @@ const UserDetails = () => {
                     </Col>
 
                     <Col sm={8}>
-                        <GraphicsUser totalCarFootprints={totalCarFootprints} totalFlightFootprints={totalFlightFootprints} />
                         <Row>
-                            {<Col>
+                            <GraphicsUser totalCarFootprints={totalCarFootprints} totalFlightFootprints={totalFlightFootprints} />
+                        </Row>
+                        <Row>
+                            {<Col sm={6}>
                                 <Co2Carfootprint carFootprints={carFootprints} profileId={userDetails._id} />
                             </Col>}
 
-                            {<Col>
+                            {<Col sm={6}>
                                 <Co2Flightfootprint flightFootprints={flightFootprints} profileId={userDetails._id} />
                             </Col>}
                         </Row>
