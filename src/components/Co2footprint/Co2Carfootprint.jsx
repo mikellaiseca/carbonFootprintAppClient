@@ -51,7 +51,7 @@ const Co2Carfootprint = ({ carFootprints }) => {
 
                         </ListGroup>
                         <Card.Body>
-                            {(user._id === carFootprint.user) ? (<Button variant="primary" type="submit" onClick={deleteFootprintCar}>Delete Footprint</Button>) : null}
+                            {(user._id === carFootprint.user) ? (<Button className='button-sm-sm' variant="primary" type="submit" onClick={deleteFootprintCar}>Delete Footprint</Button>) : null}
                         </Card.Body>
                     </Card>
                 </Col >

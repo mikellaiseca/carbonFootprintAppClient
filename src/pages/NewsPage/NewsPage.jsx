@@ -1,7 +1,6 @@
 import APIHandler from "../../services/news.service"
-import { useState, useEffect, useContext } from "react"
-import { Card, Button, Container, Row, Col } from 'react-bootstrap'
-import { Link } from "react-router-dom"
+import { useState, useEffect } from "react"
+import { Card, Button, Container, Row, Col, Spinner } from 'react-bootstrap'
 import './NewsPage.css'
 import Footer from '../../components/Footer/Footer'
 
@@ -27,7 +26,9 @@ const NewsPage = () => {
     }
 
 
-    return !news ? (<h1>Cargando</h1>) : (
+    return !news ? (<Spinner animation="border" role="status">
+        <span className="visually-hidden">Loading...</span>
+    </Spinner>) : (
         <>
             <Container className="news-section">
 
@@ -35,7 +36,7 @@ const NewsPage = () => {
                 <Row xs={1} md={5} className="g-4">
                     {news.map((elm, i) => {
                         return (
-                            <Col className="card-news" key={i}>
+                            <Col className="card-news " key={i}>
                                 <Card style={{ width: '18rem' }}>
                                     <Card.Img className="news-img" variant="top" src={elm.urlToImage} />
                                     <Card.Body className="body">
@@ -44,7 +45,7 @@ const NewsPage = () => {
                                             {elm.description}
                                         </Card.Text>
 
-                                        <Button className="button" role='link' href={elm.url} as='a' target="_blank"
+                                        <Button className="button-sm-sm" role='link' href={elm.url} as='a' target="_blank"
                                             variant="primary">Continue reading</Button>
                                     </Card.Body>
                                 </Card>

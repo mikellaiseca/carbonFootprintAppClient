@@ -34,7 +34,7 @@ const UsersList = () => {
                                         <Card.Title>{elm.username}</Card.Title>
                                         <Link to={`/users/${elm._id}`}>
                                             <Button
-                                                variant="primary">Check the user!</Button>
+                                                className='button-sm' variant="primary">Check the user!</Button>
                                         </Link>
                                     </Card.Body>
                                 </Card>

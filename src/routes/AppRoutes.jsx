@@ -4,10 +4,10 @@ import LoginPage from '../pages/LoginPage'
 import SignupPage from '../pages/SignupPage'
 import UsersListPage from '../pages/UsersListPage/UsersListPage'
 import UserDetailsPage from '../pages/UserDetailsPage'
-import FootprintPage from '../pages/FootprintPage'
 import NewsPage from '../pages/NewsPage/NewsPage'
 import PrivateRoute from './PrivateRoute'
-
+import FootprintPageMain from '../pages/FootprintPageMain'
+import FootprintPageCar from '../pages/FootprintPageCar'
 import { Route, Routes } from "react-router-dom"
 import FootprintPageFlight from '../pages/FootprintPageFlight'
 
@@ -32,9 +32,14 @@ const AppRoutes = () => {
                 <Route path="" element={<UserDetailsPage />} />
             </Route>
 
-            <Route path="/car-form" element={<PrivateRoute />}>
-                <Route path="" element={<FootprintPage />} />
+            <Route path="/footprint-form" element={<PrivateRoute />}>
+                <Route path="" element={<FootprintPageMain />} />
             </Route>
+
+            <Route path="/car-form" element={<PrivateRoute />}>
+                <Route path="" element={<FootprintPageCar />} />
+            </Route>
+
 
             <Route path="/flight-form" element={<PrivateRoute />}>
                 <Route path="" element={<FootprintPageFlight />} />

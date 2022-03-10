@@ -64,18 +64,21 @@ const FootprintFormCarModel = ({ findModelId }) => {
 
     return (
         <>
+            <Form.Group className="mb-3 formLabel">
+                <Form.Label className="formLabel">Select your favourite maker</Form.Label>
 
-            <Form.Select onChange={handleInputChange} aria-label="Default select example" name="vehicle_make_id" value={modelData.vehicle_make_id} type="text">
+                <Form.Select className='input MuiOutlinedInput-notchedOutline' onChange={handleInputChange} name="vehicle_make_id" value={modelData.vehicle_make_id} type="text"  >
 
-                <option>Open this select menu</option>
+                    <option className='input'>Choose a car maker</option>
 
-                {makerData.map((elm, i) => {
-                    return (
-                        <option key={i} value={elm.data.id}>{elm.data.attributes.name}</option>
-                    )
-                })
-                }
-            </Form.Select >
+                    {makerData.map((elm, i) => {
+                        return (
+                            <option key={i} value={elm.data.id}>{elm.data.attributes.name}</option>
+                        )
+                    })
+                    }
+                </Form.Select >
+            </Form.Group>
 
 
 

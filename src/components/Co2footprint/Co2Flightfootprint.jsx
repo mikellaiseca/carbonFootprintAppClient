@@ -61,7 +61,7 @@ const Co2Flightfootprint = ({ flightFootprints }) => {
 
                         </ListGroup>
                         <Card.Body>
-                            {(user._id === flightFootprint.user) ? (<Button variant="primary" type="submit" onClick={deleteFootprintFlight}>Delete Footprint</Button>) : null}
+                            {(user._id === flightFootprint.user) ? (<Button className='button-sm-sm' variant="primary" type="submit" onClick={deleteFootprintFlight}>Delete Footprint</Button>) : null}
                         </Card.Body>
                     </Card>
                 </Col >

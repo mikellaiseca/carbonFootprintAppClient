@@ -39,7 +39,7 @@ const Navigation = () => {
                 </>
                 :
                 <>
-                  <NavLink className="navbar-links" to="/car-form">
+                  <NavLink className="navbar-links" to="/footprint-form">
                     <Nav.Link className='links-navbar' as="span">Footprint Calculator</Nav.Link>
                   </NavLink>
                   <NavLink className="navbar-links" to="/users">
@@ -49,12 +49,12 @@ const Navigation = () => {
                     <NavLink className="navbar-links" to={`/users/${user?._id}`}>
                       <Nav.Link className='links-navbar' as="span">¡Hi, {user?.username}!</Nav.Link>
                     </NavLink>
-                    <Nav.Link className='log-out' as="span" onClick={logOutUser}>Logout</Nav.Link>
+                    <Nav.Link className='links-navbar log-out' as="span" onClick={logOutUser}>Logout</Nav.Link>
                   </Nav>
                 </>
             }
             <NavLink className="navbar-links" to='/contact-us'>
-              <Nav.Link as='span'>Contact Us</Nav.Link>
+              <Nav.Link className='links-navbar' as='span'>Contact Us</Nav.Link>
             </NavLink>
 
           </Nav >

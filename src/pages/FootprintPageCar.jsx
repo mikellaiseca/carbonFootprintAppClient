@@ -1,13 +1,11 @@
 import FootprintFormCar from "../components/FootprintForm/FootprintFormCar"
 import Footer from '../components/Footer/Footer'
-
+import './FootprintPageCar.css'
 
 const FootprintPage = () => {
 
     return (
         <>
-
-            <h3>Vehicle Footprint</h3>
             <FootprintFormCar />
 
             <Footer />

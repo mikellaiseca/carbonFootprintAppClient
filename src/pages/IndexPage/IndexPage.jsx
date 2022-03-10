@@ -58,14 +58,12 @@ const IndexPage = () => {
                     </Carousel.Item>
                 </Carousel>
 
+
+
                 <Row className="">
 
                     <Col className="card col">
-                        <h3>Live a low-carbon lifestyle </h3>
-                    </Col>
-
-                    <Col className="card col">
-                        <h3>Check the latest news about Co2</h3>
+                        <h1>Check the latest news about Co2</h1>
                         <Link to='/news'>
                             <Button className="button">
                                 News
@@ -86,26 +84,38 @@ const IndexPage = () => {
                     </Col>
 
                 </Row>
+
+
+
+
                 <Row>
                     <Row className="block text-align-left">
                         <h3>Integrated Climate Action</h3>
+                        <hr></hr>
                     </Row>
                     <Row className="block text-align-left">
                         <h2>We bring together everything that’s required to integrate climate into your customer experiences.</h2>
                     </Row>
                     <Row className="block">
                         <Col>
-                            <Row>
+
+
+                            <Row className="happy-p">
                                 <Col sm={12}>
-                                    I occupy 12
+                                    <strong><p>😁 Happy Customers, Happy Planet</p></strong>
+                                    <p className="justify-content">We know that when you put customers at the center of climate action, the impact becomes greater. So we work with you to integrate climate into modern, market-leading customer experiences.</p>
                                 </Col>
                                 <Col sm={12}>
-                                    I occupy 12
+                                    <strong><p>📂 Optimized</p></strong>
+                                    <p className="justify-content">Our RESTful API enables partners to optimize climate integrations, flexibility adjusting for any customer type, market, or compliance specification.</p>
                                 </Col>
                                 <Col sm={12}>
-                                    I occupy 12
+                                    <strong><p>🌍Global</p></strong>
+                                    <p className="justify-content">Climate change is a global challenge. Our integrations support secure climate-oriented customer experiences in 40+ languages, all currencies and major payment methods, ensuring you can enable your customers wherever they are.</p>
                                 </Col>
                             </Row>
+
+
                         </Col>
                         <Col>
                             <img className="mobile-image" src={mobileImg} />
@@ -118,7 +128,9 @@ const IndexPage = () => {
 
 
 
+
             </Container >
+
             <Footer />
         </>
 

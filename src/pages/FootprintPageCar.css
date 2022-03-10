@@ -1,0 +1,83 @@
+img{
+    width: 100%;
+}
+
+
+.footprintFormCar{
+    width: 50%;
+    font-size: 20px;
+    font-family: 'Hind Siliguri', sans-serif;
+}
+
+.footprintFormCar h3{
+    color: white;
+}
+
+.footprintFormCar .button {
+    width: 50% !important;
+}
+
+.formLabel{
+    text-align: left;
+    color: white;
+}
+
+.formLabel:focus{
+  background: rgba(255, 255, 255, 0.699);
+color: #045869fa;
+border: none;
+border-radius: 5px;
+box-shadow: 0 0 5px #fdfdfd,
+              0 0 25px #fdfdfd,
+              0 0 50px #fdfdfd,
+              0 0 100px #fdfdfd;
+}
+
+.background-color{
+    background-color: transparent;
+}
+
+.footprintFormCar .input {
+background-color: transparent;
+  width: 100%;
+  padding: 10px ;
+  margin-top: 10px;
+  font-size: 16px;
+  color: white !important;
+  border-color: white !important;
+
+}
+
+.footprintFormCar .input:focus {
+background-color: transparent;
+color: #045869fa;
+border: none;
+border-radius: 5px;
+box-shadow: 0 0 5px #fdfdfd,
+              0 0 25px #fdfdfd,
+              0 0 50px #fdfdfd,
+              0 0 100px #fdfdfd;
+
+}
+
+
+
+
+.footprintFormCar .MuiOutlinedInput-notchedOutline{
+    width: 100%;
+    border-color: white !important;
+}
+
+.footprintFormCar .MuiFormLabel-root {
+    color: white !important;
+}
+
+.footprintFormCar .vehicle model-popup {
+    background-color: black !important;
+}
+
+.footprintFormCar .autcomplete-flight{
+    margin: 20px;
+}
+
+

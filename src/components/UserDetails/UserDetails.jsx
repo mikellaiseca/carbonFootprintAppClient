@@ -144,7 +144,7 @@ const UserDetails = () => {
                                 <Form.Group controlId="exampleForm.ControlTextarea1">
                                     <Form.Control className="comment-box" as="textarea" rows={3} name="content" placeholder="Leave your comment" value={content} onChange={handleInputChange} />
                                 </Form.Group>
-                                {loadingComment && <Button variant="primary" type="submit" className='comment-button'>Post</Button>}
+                                {loadingComment && <Button className='button-sm' variant="primary" type="submit" className='comment-button'>Post</Button>}
                             </Form>
 
                             :

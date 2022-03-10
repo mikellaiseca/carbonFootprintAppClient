@@ -58,18 +58,22 @@ const FootprintFormFlight = () => {
     }
 
     return (
-        <Container>
-            <Form onSubmit={handleSubmit}>
+        <Container className='footprintFormCar'>
 
-                <Form.Group className="mb-3">
+            <h3>Flight Footprint</h3>
+
+            <Form onSubmit={handleSubmit} className="form">
+
+                <Form.Group className="mb-3 formLabel autcomplete-flight">
                     <Form.Label>Passengers</Form.Label>
-                    <Form.Control type="text" name="passengers" value={footprintForm.passengers} onChange={handleInputChange} />
+                    <Form.Control className='input' type="text" name="passengers" value={footprintForm.passengers} onChange={handleInputChange} />
                 </Form.Group>
 
                 <Autocomplete
+                    className="formLabel autcomplete-flight"
                     options={airportData}
                     renderInput={suggestion => (
-                        <TextField {...suggestion} label="departure_airport" variant="outlined" />
+                        <TextField className='input'{...suggestion} label="departure_airport" variant="outlined" />
                     )}
                     getOptionLabel={suggestion => suggestion.iata_code + " " + suggestion.airport_name + " " + "(" + suggestion.country_name + ")"}
                     onChange={(_event, newDepartureAirport) => {
@@ -79,9 +83,10 @@ const FootprintFormFlight = () => {
                 />
 
                 <Autocomplete
+                    className="formLabel autcomplete-flight"
                     options={airportData}
                     renderInput={suggestion => (
-                        <TextField {...suggestion} label="destination_airport" variant="outlined" />
+                        <TextField className='input'{...suggestion} label="destination_airport" variant="outlined" />
                     )}
                     getOptionLabel={suggestion => suggestion.iata_code + " " + suggestion.airport_name + " " + "(" + suggestion.country_name + ")"}
                     onChange={(_event, newDestinationAirport) => {
@@ -90,9 +95,10 @@ const FootprintFormFlight = () => {
 
                 />
 
-                <Button variant="dark" type="submit" style={{ width: '100%' }}>Calculate</Button>
+                <Button className='button' variant="dark" type="submit" style={{ width: '100%' }}>Calculate</Button>
 
             </Form>
+
         </Container>
     )
 
