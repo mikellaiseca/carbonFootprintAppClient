@@ -30,7 +30,7 @@ const FootprintFormCar = () => {
         footprintServiceBack
             .getCarFootprint(footprintFormCar)
             .then(() => {
-                navigate('/flight-form')
+                navigate('/')
             })
             .catch(err => console.log(err))
 
