@@ -9,16 +9,16 @@ import './Co2footprint.css'
 
 const Co2Carfootprint = ({ carFootprints }) => {
 
+    console.log(carFootprints)
+
     const { user } = useContext(AuthContext)
 
-    const deleteFootprintCar = () => {
+    const deleteFootprintCar = (id) => {
 
-        carFootprints.map(carFootprint => {
-            footprintServiceBack
-                .deleteFootprintCar(carFootprint._id)
-                .then(() => console.log('footprint eliminada'))
-                .catch(err => console.log(err))
-        })
+        footprintServiceBack
+            .deleteFootprintCar(id)
+            .then(() => console.log('footprint eliminada'))
+            .catch(err => console.log(err))
     }
 
     const formatDate = (Date) => {
@@ -51,7 +51,7 @@ const Co2Carfootprint = ({ carFootprints }) => {
 
                         </ListGroup>
                         <Card.Body>
-                            {(user._id === carFootprint.user) ? (<Button className='button-sm-sm' variant="primary" type="submit" onClick={deleteFootprintCar}>Delete Footprint</Button>) : null}
+                            {(user._id === carFootprint.user) ? (<Button className='button-sm-sm' variant="primary" type="submit" onClick={() => deleteFootprintCar(carFootprint._id)} >Delete Footprint</Button>) : null}
                         </Card.Body>
                     </Card>
                 </Col >

@@ -10,15 +10,12 @@ const Co2Flightfootprint = ({ flightFootprints }) => {
 
     const { user } = useContext(AuthContext)
 
-    const deleteFootprintFlight = () => {
+    const deleteFootprintFlight = (id) => {
 
-        flightFootprints.map(flightFootprint => {
-
-            footprintServiceBack
-                .deleteFootprintFlight(flightFootprint._id)
-                .then(() => console.log('footprint eliminada'))
-                .catch(err => console.log(err))
-        })
+        footprintServiceBack
+            .deleteFootprintFlight(id)
+            .then(() => console.log('footprint eliminada'))
+            .catch(err => console.log(err))
     }
 
     const formatDate = (Date) => {
@@ -61,7 +58,7 @@ const Co2Flightfootprint = ({ flightFootprints }) => {
 
                         </ListGroup>
                         <Card.Body>
-                            {(user._id === flightFootprint.user) ? (<Button className='button-sm-sm' variant="primary" type="submit" onClick={deleteFootprintFlight}>Delete Footprint</Button>) : null}
+                            {(user._id === flightFootprint.user) ? (<Button className='button-sm-sm' variant="primary" type="submit" onClick={() => deleteFootprintFlight(flightFootprint._id)}>Delete Footprint</Button>) : null}
                         </Card.Body>
                     </Card>
                 </Col >

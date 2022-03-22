@@ -2,19 +2,28 @@ import { useContext } from "react"
 import { Button, Card } from "react-bootstrap"
 import { AuthContext } from "../../context/auth.context"
 import commentService from "../../services/comment.service"
-import usersService from "../../services/users.service"
+import { useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
+
 import './CommentList.css'
 
 const CommentList = (commentId) => {
 
     const { user } = useContext(AuthContext)
+
     const commentInfo = commentId.commentId
+
+    const navigate = useNavigate()
+
+    const { user_id } = useParams()
 
     const deleteComment = () => {
 
         commentService
             .deleteComment(commentInfo._id)
-            .then(() => console.log('comentario eliminado'))
+            .then(() => {
+                navigate(`/users/${user_id}`)
+            })
             .catch(err => console.log(err))
     }
 

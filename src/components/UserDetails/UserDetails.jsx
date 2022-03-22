@@ -29,7 +29,6 @@ const UserDetails = () => {
     const [commentsList, setCommentsList] = useState([])
 
     const [carFootprints, setCarFootprint] = useState([])
-    console.log(carFootprints)
     const [totalCarFootprints, setTotalCarFootprint] = useState([])
 
     const [flightFootprints, setFlightFootprint] = useState([])
