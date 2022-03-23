@@ -4,7 +4,7 @@ class NewsService {
 
     constructor() {
         this.axiosApp = axios.create({
-            baseURL: 'https://api.mediastack.com/v1/'
+            baseURL: 'http://api.mediastack.com/v1/'
         })
     }
 
