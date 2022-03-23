@@ -1,6 +1,6 @@
 import { Container } from "react-bootstrap";
-import UserDetails from "../components/UserDetails/UserDetails";
-import Footer from '../components/Footer/Footer'
+import UserDetails from "../../components/UserDetails/UserDetails";
+import Footer from '../../components/Footer/Footer'
 
 
 function UserDetailsPage() {

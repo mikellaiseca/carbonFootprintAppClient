@@ -10,11 +10,15 @@ const Co2Flightfootprint = ({ flightFootprints }) => {
 
     const { user } = useContext(AuthContext)
 
+    function refreshPage() {
+        window.location.reload();
+    }
+
     const deleteFootprintFlight = (id) => {
 
         footprintServiceBack
             .deleteFootprintFlight(id)
-            .then(() => console.log('footprint eliminada'))
+            .then(() => refreshPage())
             .catch(err => console.log(err))
     }
 

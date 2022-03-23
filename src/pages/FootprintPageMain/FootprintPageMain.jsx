@@ -1,8 +1,7 @@
 import { Button, Col, Container, Row } from "react-bootstrap"
 import { Link } from "react-router-dom";
 import './FootprintPageMain.css'
-import Footer from '../components/Footer/Footer'
-
+import Footer from '../../components/Footer/Footer'
 
 const FootprintPageMain = () => {
 

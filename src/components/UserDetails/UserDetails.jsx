@@ -94,7 +94,6 @@ const UserDetails = () => {
             .catch(err => console.log(err))
     }
 
-
     const handleInputChange = e => {
 
         const { name, value } = e.target
@@ -102,6 +101,10 @@ const UserDetails = () => {
             ...comment,
             [name]: value
         })
+    }
+
+    function refreshPage() {
+        window.location.reload();
     }
 
     function handleSubmit(e) {
@@ -118,7 +121,7 @@ const UserDetails = () => {
                     content: "",
                     date: "",
                 })
-                navigate(`/users/${user_id}`)
+                refreshPage()
             })
             .catch(err => console.log(err))
 

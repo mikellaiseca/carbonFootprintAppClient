@@ -1,6 +1,6 @@
-import FootprintFormCar from "../components/FootprintForm/FootprintFormCar"
-import Footer from '../components/Footer/Footer'
-import './FootprintPageCar.css'
+import FootprintFormCar from "../../components/FootprintForm/FootprintFormCar"
+import Footer from '../../components/Footer/Footer'
+import './FootprintPages.css'
 
 const FootprintPage = () => {
 
@@ -9,7 +9,6 @@ const FootprintPage = () => {
             <FootprintFormCar />
 
             <Footer />
-
 
         </>
     )

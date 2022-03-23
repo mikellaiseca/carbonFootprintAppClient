@@ -1,24 +1,25 @@
 import { Container, Row, Col } from 'react-bootstrap'
-import SignupForm from '../components/SignupForm/SignupForm'
-import Footer from '../components/Footer/Footer'
+import LoginForm from '../../components/LoginForm/LoginForm'
+import Footer from '../../components/Footer/Footer'
 
 
-function SignupPage() {
+function LoginPage() {
 
     return (
         <>
             <Container>
                 <Row className="justify-content-md-center">
                     <Col md={4}>
-                        <h1>Sign up</h1>
+                        <h1>Log-in</h1>
                         <hr />
-                        <SignupForm />
+                        <LoginForm />
                     </Col>
                 </Row>
             </Container>
             <Footer />
         </>
+
     )
 }
 
-export default SignupPage
+export default LoginPage

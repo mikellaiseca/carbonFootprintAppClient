@@ -17,12 +17,16 @@ const CommentList = (commentId) => {
 
     const { user_id } = useParams()
 
+    function refreshPage() {
+        window.location.reload();
+    }
+
     const deleteComment = () => {
 
         commentService
             .deleteComment(commentInfo._id)
             .then(() => {
-                navigate(`/users/${user_id}`)
+                refreshPage()
             })
             .catch(err => console.log(err))
     }

@@ -4,12 +4,12 @@ class NewsService {
 
     constructor() {
         this.axiosApp = axios.create({
-            baseURL: 'https://newsapi.org/v2/'
+            baseURL: 'http://api.mediastack.com/v1/'
         })
     }
 
     getFullListNews() {
-        return this.axiosApp.get(`everything?q=co2&apiKey=${process.env.REACT_APP_API_KEY}`)
+        return this.axiosApp.get(`news?access_key=${process.env.REACT_APP_API_KEY}&keywords=co2&languages=en`)
     }
 
 }

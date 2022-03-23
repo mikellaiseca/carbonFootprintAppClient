@@ -1,15 +1,15 @@
 import IndexPage from '../pages/IndexPage/IndexPage'
-import ContactUsPage from '../pages/ContactUsPage'
-import LoginPage from '../pages/LoginPage'
-import SignupPage from '../pages/SignupPage'
+import ContactUsPage from '../pages/ContactUsPage/ContactUsPage'
+import LoginPage from '../pages/LoginPage/LoginPage'
+import SignupPage from '../pages/SignupPage/SignupPage'
 import UsersListPage from '../pages/UsersListPage/UsersListPage'
-import UserDetailsPage from '../pages/UserDetailsPage'
+import UserDetailsPage from '../pages/UserDetailsPage/UserDetailsPage'
 import NewsPage from '../pages/NewsPage/NewsPage'
 import PrivateRoute from './PrivateRoute'
-import FootprintPageMain from '../pages/FootprintPageMain'
-import FootprintPageCar from '../pages/FootprintPageCar'
+import FootprintPageMain from '../pages/FootprintPageMain/FootprintPageMain'
+import FootprintPageCar from '../pages/FootprintPages/FootprintPageCar'
 import { Route, Routes } from "react-router-dom"
-import FootprintPageFlight from '../pages/FootprintPageFlight'
+import FootprintPageFlight from '../pages/FootprintPages/FootprintPageFlight'
 
 const AppRoutes = () => {
 

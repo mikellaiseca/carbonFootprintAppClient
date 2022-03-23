@@ -9,15 +9,19 @@ import './Co2footprint.css'
 
 const Co2Carfootprint = ({ carFootprints }) => {
 
-    console.log(carFootprints)
-
     const { user } = useContext(AuthContext)
+
+    const [ownFootprints, setOwnFootprints] = useState([carFootprints])
+
+    function refreshPage() {
+        window.location.reload();
+    }
 
     const deleteFootprintCar = (id) => {
 
         footprintServiceBack
             .deleteFootprintCar(id)
-            .then(() => console.log('footprint eliminada'))
+            .then(() => refreshPage())
             .catch(err => console.log(err))
     }
 
