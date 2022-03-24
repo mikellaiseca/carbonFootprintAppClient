@@ -10,6 +10,7 @@ import FootprintPageMain from '../pages/FootprintPageMain/FootprintPageMain'
 import FootprintPageCar from '../pages/FootprintPages/FootprintPageCar'
 import { Route, Routes } from "react-router-dom"
 import FootprintPageFlight from '../pages/FootprintPages/FootprintPageFlight'
+import ErrorPage from '../pages/ErrorPage/ErrorPage'
 
 const AppRoutes = () => {
 
@@ -46,6 +47,8 @@ const AppRoutes = () => {
             </Route>
 
             <Route path="/news" element={<NewsPage />} />
+
+            <Route path="*" element={<ErrorPage />} />
 
         </Routes>
     )
