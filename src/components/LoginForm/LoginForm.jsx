@@ -55,7 +55,7 @@ function LoginForm() {
                 <Form.Control type="password" name="password" value={loginForm.password} onChange={handleInputChange} />
             </Form.Group>
 
-            <Button variant="dark" type="submit" style={{ width: '100%' }}>Log-in</Button>
+            <Button variant="dark" type="submit" className="button-sm-sm" style={{ width: '100%' }}>Log-in</Button>
 
         </Form>
     )

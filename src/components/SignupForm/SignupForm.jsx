@@ -79,7 +79,7 @@ function SignupForm() {
                 <Form.Control type="file" onChange={uploadProfileImage} />
             </Form.Group>
 
-            <Button variant="dark" type="submit" style={{ width: '100%' }} disabled={loadingImage}>{loadingImage ? 'Just a moment...' : 'Create user'}</Button>
+            <Button variant="dark" type="submit" className="button-sm-sm" style={{ width: '100%' }} disabled={loadingImage}>{loadingImage ? 'Just a moment...' : 'Create user'}</Button>
 
         </Form>
     )
