@@ -1,24 +1,21 @@
-import APIHandler from "../../services/news.service"
+import newsServiceBack from '../../services/newsBack.service'
 import { useState, useEffect } from "react"
 import { Card, Button, Container, Row, Col, Spinner } from 'react-bootstrap'
 import './News.css'
 
 const News = () => {
 
-    const newsAPI = new APIHandler
-
     const [news, setNews] = useState([])
-
 
     useEffect(() => {
         loadNews()
     }, [])
 
     const loadNews = () => {
-        newsAPI
+        newsServiceBack
             .getFullListNews()
             .then(response =>
-                setNews(response.data.data))
+                setNews(response.data.articles))
             .catch(err => console.log(err))
     }
 
@@ -35,10 +32,9 @@ const News = () => {
                         return (
                             <Col className="card-news " key={i}>
                                 <Card style={{ width: '18rem' }}>
-                                    <Card.Img className="news-img" variant="top" src={elm.image} />
+                                    <Card.Img className="news-img" variant="top" src={elm.urlToImage} />
                                     <Card.Body className="body">
                                         <Card.Title>{elm.title}</Card.Title>
-                                        <Card.Text>Source: {elm.source}</Card.Text>
                                         <Card.Text className="text">
                                             {elm.description}
                                         </Card.Text>

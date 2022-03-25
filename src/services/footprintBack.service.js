@@ -30,7 +30,6 @@ class FootprintServiceBack {
     }
 
     getCarCustomFootprint = (userId) => {
-        console.log(userId, 'service back en el front')
 
         return this.api.get(`/car-custom-footprints/${userId}`)
     }
