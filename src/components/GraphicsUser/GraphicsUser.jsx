@@ -3,21 +3,37 @@ import { Container } from 'react-bootstrap'
 import './GraphicsUser.css'
 
 
-const MyResponsivePie = ({ totalCarFootprints, totalFlightFootprints }) => {
+const MyResponsivePie = ({ totalCarFootprints, totalFlightFootprints, totalShippingFootprints }) => {
     return (
         < Container className='pie-chart' >
             <ResponsivePie
+                theme={{
+                    "fontSize": 15,
+                    "tooltip": {
+                        "container": {
+                            "background": "#ffffff",
+                            "color": "#000",
+                            "fontSize": 13
+                        },
+                    },
+                }}
                 data={[
                     {
                         "id": "Car Footprint",
-                        "label": "Car Footprint",
+                        "label": "Car",
                         "value": totalCarFootprints,
                         "color": "hsl(41, 70%, 50%)"
                     },
                     {
                         "id": "Flight Footprint",
-                        "label": "Flight Footprint",
+                        "label": "Flight",
                         "value": totalFlightFootprints,
+                        "color": "hsl(165, 70%, 50%)"
+                    },
+                    {
+                        "id": "Shipping Footprint",
+                        "label": "Shipping",
+                        "value": totalShippingFootprints,
                         "color": "hsl(165, 70%, 50%)"
                     }]}
                 margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
@@ -35,20 +51,8 @@ const MyResponsivePie = ({ totalCarFootprints, totalFlightFootprints }) => {
                         ]
                     ]
                 }}
-                arcLinkLabelsSkipAngle={10}
-                arcLinkLabelsTextColor="#333333"
-                arcLinkLabelsThickness={2}
-                arcLinkLabelsColor={{ from: 'color' }}
-                arcLabelsSkipAngle={10}
-                arcLabelsTextColor={{
-                    from: 'color',
-                    modifiers: [
-                        [
-                            'darker',
-                            2
-                        ]
-                    ]
-                }}
+                enableArcLinkLabels={false}
+                enableArcLabels={false}
                 defs={[
                     {
                         id: 'dots',
@@ -72,52 +76,22 @@ const MyResponsivePie = ({ totalCarFootprints, totalFlightFootprints }) => {
                 fill={[
                     {
                         match: {
-                            id: 'ruby'
+                            id: 'Car Footprint'
                         },
                         id: 'dots'
                     },
                     {
                         match: {
-                            id: 'c'
+                            id: 'Flight Footprint'
+                        },
+                        id: 'lines'
+                    },
+                    {
+                        match: {
+                            id: 'Shipping Footprint'
                         },
                         id: 'dots'
                     },
-                    {
-                        match: {
-                            id: 'go'
-                        },
-                        id: 'dots'
-                    },
-                    {
-                        match: {
-                            id: 'python'
-                        },
-                        id: 'dots'
-                    },
-                    {
-                        match: {
-                            id: 'scala'
-                        },
-                        id: 'lines'
-                    },
-                    {
-                        match: {
-                            id: 'lisp'
-                        },
-                        id: 'lines'
-                    },
-                    {
-                        match: {
-                            id: 'elixir'
-                        },
-                        id: 'lines'
-                    },
-                    {
-                        match: {
-                            id: 'javascript'
-                        },
-                        id: 'lines'
-                    }
                 ]}
                 legends={[
                     {
@@ -126,10 +100,10 @@ const MyResponsivePie = ({ totalCarFootprints, totalFlightFootprints }) => {
                         justify: false,
                         translateX: 0,
                         translateY: 56,
-                        itemsSpacing: 0,
+                        itemsSpacing: 5,
                         itemWidth: 100,
                         itemHeight: 18,
-                        itemTextColor: '#999',
+                        itemTextColor: '#fff',
                         itemDirection: 'left-to-right',
                         itemOpacity: 1,
                         symbolSize: 18,
@@ -141,7 +115,7 @@ const MyResponsivePie = ({ totalCarFootprints, totalFlightFootprints }) => {
                                     itemTextColor: '#000'
                                 }
                             }
-                        ]
+                        ],
                     }
                 ]}
             />

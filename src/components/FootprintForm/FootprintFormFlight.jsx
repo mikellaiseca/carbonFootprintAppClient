@@ -13,7 +13,6 @@ const FootprintFormFlight = () => {
         departure_airport: "",
         destination_airport: "",
     })
-    console.log(footprintForm)
 
     const navigate = useNavigate()
 
@@ -30,8 +29,6 @@ const FootprintFormFlight = () => {
             ...footprintForm,
             departure_airport: id.iata_code
         })
-        console.log(footprintForm)
-
     }
 
     const findDestination = (id) => {
@@ -40,8 +37,6 @@ const FootprintFormFlight = () => {
             ...footprintForm,
             destination_airport: id.iata_code
         })
-        console.log(footprintForm)
-
     }
 
     function handleSubmit(e) {
@@ -51,7 +46,6 @@ const FootprintFormFlight = () => {
         footprintServiceBack
             .getFlightFootprint(footprintForm)
             .then(() => {
-
                 navigate('/')
             })
 

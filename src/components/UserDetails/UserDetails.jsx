@@ -10,9 +10,9 @@ import './UserDetails.css'
 import CommentList from '../../components/CommentList/CommentList.jsx'
 import Co2Carfootprint from "../Co2footprint/Co2Carfootprint"
 import Co2Flightfootprint from '../Co2footprint/Co2Flightfootprint'
+import Co2Shippingfootprint from '../Co2footprint/Co2Shippingfootprint'
 import GraphicsUser from '../GraphicsUser/GraphicsUser'
 import footprintServiceBack from '../../services/footprintBack.service'
-
 
 const UserDetails = () => {
 
@@ -34,6 +34,9 @@ const UserDetails = () => {
     const [flightFootprints, setFlightFootprint] = useState([])
     const [totalFlightFootprints, setTotalFlightFootprint] = useState([])
 
+    const [shippingFootprints, setShippingFootprint] = useState([])
+    const [totalShippingFootprints, setTotalShippingFootprint] = useState([])
+
     const navigate = useNavigate()
 
     const { user_id } = useParams()
@@ -50,6 +53,7 @@ const UserDetails = () => {
     useEffect(() => {
         userDetails._id && loadCarfootprints()
         userDetails._id && loadFlightfootprints()
+        userDetails._id && loadShippingfootprints()
     }, [userDetails])
 
     const loadCarfootprints = () => {
@@ -70,6 +74,17 @@ const UserDetails = () => {
                 let total = data.reduce((acc, elm) => acc + elm.carbon_kg, 0)
                 setFlightFootprint(data)
                 setTotalFlightFootprint(total)
+            })
+            .catch(err => console.log(err))
+    }
+
+    const loadShippingfootprints = () => {
+        footprintServiceBack
+            .getShippingCustomFootprint(userDetails._id)
+            .then(({ data }) => {
+                let total = data.reduce((acc, elm) => acc + elm.carbon_kg, 0)
+                setShippingFootprint(data)
+                setTotalShippingFootprint(total)
             })
             .catch(err => console.log(err))
     }
@@ -161,22 +176,24 @@ const UserDetails = () => {
 
                     <Col sm={8}>
                         <Row>
-                            <GraphicsUser totalCarFootprints={totalCarFootprints} totalFlightFootprints={totalFlightFootprints} />
+                            <GraphicsUser totalCarFootprints={totalCarFootprints} totalFlightFootprints={totalFlightFootprints} totalShippingFootprints={totalShippingFootprints} />
                         </Row>
                         <Row>
-                            {<Col sm={6}>
+                            {<Col sm={4}>
                                 <Co2Carfootprint carFootprints={carFootprints} profileId={userDetails._id} />
                             </Col>}
 
-                            {<Col sm={6}>
+                            {<Col sm={4}>
                                 <Co2Flightfootprint flightFootprints={flightFootprints} profileId={userDetails._id} />
+                            </Col>}
+
+                            {<Col sm={4}>
+                                <Co2Shippingfootprint shippingFootprints={shippingFootprints} profileId={userDetails._id} />
                             </Col>}
                         </Row>
                     </Col>
 
                 </Row>
-
-
 
             </Container>
         </>

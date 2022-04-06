@@ -29,6 +29,11 @@ class FootprintServiceBack {
         return this.api.post('/car-form', body)
     }
 
+    getShippingFootprint = (body) => {
+
+        return this.api.post('/shipping-form', body)
+    }
+
     getCarCustomFootprint = (userId) => {
 
         return this.api.get(`/car-custom-footprints/${userId}`)
@@ -39,12 +44,21 @@ class FootprintServiceBack {
         return this.api.get(`/flight-custom-footprints/${userId}`)
     }
 
+    getShippingCustomFootprint = (userId) => {
+
+        return this.api.get(`/shipping-custom-footprints/${userId}`)
+    }
+
     deleteFootprintCar(id) {
         return this.api.delete(`/delete-footprintCar/${id}`)
     }
 
     deleteFootprintFlight(id) {
         return this.api.delete(`/delete-footprintFlight/${id}`)
+    }
+
+    deleteFootprintShipping(id) {
+        return this.api.delete(`/delete-footprintShipping/${id}`)
     }
 
 }

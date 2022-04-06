@@ -11,6 +11,7 @@ import FootprintPageCar from '../pages/FootprintPages/FootprintPageCar'
 import { Route, Routes } from "react-router-dom"
 import FootprintPageFlight from '../pages/FootprintPages/FootprintPageFlight'
 import ErrorPage from '../pages/ErrorPage/ErrorPage'
+import FootprintPageShipping from '../pages/FootprintPages/FootprintPageShipping'
 
 const AppRoutes = () => {
 
@@ -41,9 +42,12 @@ const AppRoutes = () => {
                 <Route path="" element={<FootprintPageCar />} />
             </Route>
 
-
             <Route path="/flight-form" element={<PrivateRoute />}>
                 <Route path="" element={<FootprintPageFlight />} />
+            </Route>
+
+            <Route path="/shipping-form" element={<PrivateRoute />}>
+                <Route path="" element={<FootprintPageShipping />} />
             </Route>
 
             <Route path="/news" element={<NewsPage />} />
