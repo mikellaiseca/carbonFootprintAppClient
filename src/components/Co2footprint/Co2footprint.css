@@ -10,14 +10,13 @@
 }
 
 .list-item {
-    background-color: transparent;
-    color: white;
+    text-align: left;
 }
 
 .list-item:hover {
-    background-color: #84bcca;
+    background-color: #c3d5da;
     color: #486e6efa;
-    border-radius: 5%;
+    border-radius: 2%;
 }
 
 .card-title {

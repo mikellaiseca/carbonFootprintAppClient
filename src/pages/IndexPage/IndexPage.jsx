@@ -3,12 +3,10 @@ import { Link } from "react-router-dom";
 import companyLogs from './images/company_logos.png'
 import mobileImg from './images/mobile-img.png'
 import codeGif from './images/code_gif.gif'
-import mistForest from './images/forest_mist.jpg'
 import flight from './images/flighthub3.jpeg'
 import highway from './images/highway.jpeg'
 import shipping from './images/shipping.jpeg'
 import Footer from '../../components/Footer/Footer'
-
 
 import './IndexPage.css'
 

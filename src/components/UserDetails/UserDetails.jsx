@@ -179,17 +179,9 @@ const UserDetails = () => {
                             <GraphicsUser totalCarFootprints={totalCarFootprints} totalFlightFootprints={totalFlightFootprints} totalShippingFootprints={totalShippingFootprints} />
                         </Row>
                         <Row>
-                            {<Col sm={4}>
-                                <Co2Carfootprint carFootprints={carFootprints} profileId={userDetails._id} />
-                            </Col>}
-
-                            {<Col sm={4}>
-                                <Co2Flightfootprint flightFootprints={flightFootprints} profileId={userDetails._id} />
-                            </Col>}
-
-                            {<Col sm={4}>
-                                <Co2Shippingfootprint shippingFootprints={shippingFootprints} profileId={userDetails._id} />
-                            </Col>}
+                            <Co2Carfootprint carFootprints={carFootprints} profileId={userDetails._id} />
+                            <Co2Flightfootprint flightFootprints={flightFootprints} profileId={userDetails._id} />
+                            <Co2Shippingfootprint shippingFootprints={shippingFootprints} profileId={userDetails._id} />
                         </Row>
                     </Col>
 

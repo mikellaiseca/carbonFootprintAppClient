@@ -2,7 +2,6 @@ import { Container, Row, Col } from 'react-bootstrap'
 import LoginForm from '../../components/LoginForm/LoginForm'
 import Footer from '../../components/Footer/Footer'
 
-
 function LoginPage() {
 
     return (

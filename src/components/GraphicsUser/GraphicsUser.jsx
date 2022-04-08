@@ -20,7 +20,7 @@ const MyResponsivePie = ({ totalCarFootprints, totalFlightFootprints, totalShipp
                 data={[
                     {
                         "id": "Car Footprint",
-                        "label": "Car",
+                        "label": "Vehicle",
                         "value": totalCarFootprints,
                         "color": "hsl(41, 70%, 50%)"
                     },
