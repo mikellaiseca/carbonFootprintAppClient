@@ -6,6 +6,7 @@ import './News.css'
 const News = () => {
 
     const [news, setNews] = useState([])
+    const [loading, setLoading] = useState([])
 
     useEffect(() => {
         loadNews()
@@ -14,18 +15,24 @@ const News = () => {
     const loadNews = () => {
         newsServiceBack
             .getFullListNews()
-            .then(response =>
-                setNews(response.data.articles))
+            .then(response => {
+                setNews(response.data.articles)
+                setLoading()
+            })
             .catch(err => console.log(err))
     }
 
 
-    return !news ? (<Spinner animation="border" role="status">
-        <span className="visually-hidden">Loading...</span>
-    </Spinner>) : (
+    return loading ? (
+        <>
+            <h2>Latest news</h2>
+            <Spinner animation="border" role="status" className='loader'>
+                <span className="visually-hidden">Loading...</span>
+            </Spinner>
+        </>
+    ) : (
         <>
             <Container className="news-section">
-
                 <h2>Latest news</h2>
                 <Row className="g-4">
                     {news.map((elm, i) => {
