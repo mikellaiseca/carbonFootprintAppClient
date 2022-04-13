@@ -1,6 +1,6 @@
 import footprintServiceFront from '../../services/footprintFront.service'
 import { useState, useEffect } from 'react'
-import { Form } from 'react-bootstrap'
+import { Form, Spinner } from 'react-bootstrap'
 import TestFilter from './TestFilter'
 
 
@@ -12,8 +12,6 @@ const FootprintFormCarModel = ({ findModelId }) => {
         vehicle_make_id: ''
     })
     const [data, setData] = useState([])
-
-
 
     useEffect(() => {
 
@@ -54,8 +52,9 @@ const FootprintFormCarModel = ({ findModelId }) => {
             .getCarModels(modelData.vehicle_make_id)
             .then(response => {
                 setData(response.data)
-                console.log(response.data.length)
-                response.data.length === undefined ? (console.log('<0')) :
+                response.data.length === undefined ? (<Spinner animation="border" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </Spinner>) :
                     setIsDisabled(false)
 
             })

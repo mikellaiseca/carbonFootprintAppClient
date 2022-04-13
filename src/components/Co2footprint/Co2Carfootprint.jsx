@@ -1,17 +1,13 @@
-import { Card, Col, ListGroup, ListGroupItem, Button, Container, Accordion } from 'react-bootstrap'
-import { useEffect, useState } from 'react'
+import { ListGroup, Button, Accordion } from 'react-bootstrap'
 import footprintServiceBack from '../../services/footprintBack.service'
 import { AuthContext } from './../../context/auth.context'
 import { useContext } from 'react'
-import carIcon from './car-icon.png'
 import './Co2footprint.css'
 
 
 const Co2Carfootprint = ({ carFootprints }) => {
 
     const { user } = useContext(AuthContext)
-
-    const [ownFootprints, setOwnFootprints] = useState([carFootprints])
 
     function refreshPage() {
         window.location.reload();
@@ -39,7 +35,7 @@ const Co2Carfootprint = ({ carFootprints }) => {
                     {carFootprints.map((carFootprint, i) => {
 
                         return (
-                            <ListGroup variant="flush">
+                            <ListGroup variant="flush" key={i}>
                                 <ListGroup.Item className='list-item'>
                                     <strong>Date:</strong> {formatDate(carFootprint.createdAt)} |
                                     <strong> Co2 Kg:</strong> {carFootprint.carbon_kg} |

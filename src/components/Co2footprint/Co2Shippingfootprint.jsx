@@ -8,11 +8,7 @@ import './Co2footprint.css'
 
 const Co2Shippingfootprint = ({ shippingFootprints }) => {
 
-    console.log(shippingFootprints)
-
     const { user } = useContext(AuthContext)
-
-    const [ownFootprints, setOwnFootprints] = useState([shippingFootprints])
 
     function refreshPage() {
         window.location.reload();
@@ -33,35 +29,6 @@ const Co2Shippingfootprint = ({ shippingFootprints }) => {
 
     return shippingFootprints.length > 0 && (
 
-        // shippingFootprints.map((shippingFootprint, i) => {
-
-        //     return (
-
-        //         <Col key={i} className='footprints'>
-
-        //             <Card style={{ width: '18rem' }}>
-        //                 <Card.Img className='fp-icon' variant="top" src={shippingIcon} />
-        //                 <Card.Body>
-        //                     <Card.Title className='card-title'>Carbon Kg: {shippingFootprint.carbon_kg}</Card.Title>
-        //                     <Card.Text className='card-title'>
-        //                         {formatDate(shippingFootprint.createdAt)}
-        //                     </Card.Text>
-
-        //                 </Card.Body>
-        //                 <ListGroup className="list-group-flush">
-        //                     <ListGroupItem className='list-item'>Weight: <strong>{shippingFootprint.weight_value} {shippingFootprint.weight_unit}</strong></ListGroupItem>
-        //                     <ListGroupItem className='list-item'>Distance: <strong>{shippingFootprint.distance_value}{shippingFootprint.distance_unit}</strong></ListGroupItem>
-        //                     <ListGroupItem className='list-item'>Transport Method: <strong>{shippingFootprint.transport_method}</strong></ListGroupItem>
-        //                 </ListGroup>
-        //                 <Card.Body>
-        //                     {(user._id === shippingFootprint.user) ? (<Button className='button-sm-sm' variant="primary" type="submit" onClick={() => deleteFootprintShipping(shippingFootprint._id)} >Delete Footprint</Button>) : null}
-        //                 </Card.Body>
-        //             </Card>
-        //         </Col >
-        //     )
-        // })
-
-
         <Accordion>
             <Accordion.Item eventKey="0">
                 <Accordion.Header>Shipping</Accordion.Header>
@@ -69,7 +36,7 @@ const Co2Shippingfootprint = ({ shippingFootprints }) => {
                     {shippingFootprints.map((shippingFootprint, i) => {
 
                         return (
-                            <ListGroup variant="flush">
+                            <ListGroup variant="flush" key={i}>
                                 <ListGroup.Item className='list-item'>
                                     <strong>Date:</strong> {formatDate(shippingFootprint.createdAt)} |
                                     <strong> Co2 Kg:</strong> {shippingFootprint.carbon_kg} |
