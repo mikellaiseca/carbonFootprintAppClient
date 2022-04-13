@@ -35,6 +35,13 @@ const FootprintPageMain = () => {
                 </Row>
 
                 <Row>
+                    <Col>
+                        <Link to='/shipping-form'>
+                            <Button className="button">
+                                Calculate shipping footprint
+                            </Button>
+                        </Link>
+                    </Col>
 
                 </Row>
 

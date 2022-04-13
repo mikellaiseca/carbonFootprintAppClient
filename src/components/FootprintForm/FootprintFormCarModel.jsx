@@ -6,6 +6,7 @@ import TestFilter from './TestFilter'
 
 const FootprintFormCarModel = ({ findModelId }) => {
 
+    const [isDisabled, setIsDisabled] = useState(true);
     const [makerData, setMakerData] = useState([])
     const [modelData, setModelData] = useState({
         vehicle_make_id: ''
@@ -25,7 +26,6 @@ const FootprintFormCarModel = ({ findModelId }) => {
 
         getModelNames()
 
-
     }, [modelData])
 
 
@@ -40,19 +40,16 @@ const FootprintFormCarModel = ({ findModelId }) => {
 
 
     const handleInputChange = e => {
-
+        setIsDisabled(false)
         const { name, value } = e.target
 
         setModelData({
-
             vehicle_make_id: value
         })
-
     }
 
 
     const getModelNames = () => {
-
 
         footprintServiceFront
             .getCarModels(modelData.vehicle_make_id)
@@ -80,7 +77,7 @@ const FootprintFormCarModel = ({ findModelId }) => {
                 </Form.Select >
             </Form.Group>
 
-            <TestFilter models={data} findModelId={findModelId} />
+            <TestFilter models={data} findModelId={findModelId} isDisabled={isDisabled} />
 
 
 

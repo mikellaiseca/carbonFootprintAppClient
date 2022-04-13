@@ -45,19 +45,19 @@ const FootprintFormShipping = () => {
                     <Form.Label>Weight</Form.Label>
                     <Form.Control className='input' type="text" name="weight_value" value={footprintFormShipping.weight_value} onChange={handleInputChange} />
                 </Form.Group>
-
+                < br></br>
                 <Form.Select aria-label="Default select example" className='input MuiOutlinedInput-notchedOutline' type="text" name="weight_unit" value={footprintFormShipping.weight_unit} onChange={handleInputChange}>
                     <option>Weight Unit</option>
                     <option value='g'>Grams</option>
                     <option value='kg'>Kilograms</option>
                     <Form.Control />
                 </Form.Select>
-
+                < br></br>
                 <Form.Group className="mb-3 formLabel">
                     <Form.Label>Distance (Km)</Form.Label>
                     <Form.Control className='input' type="text" name="distance_value" value={footprintFormShipping.distance_value} onChange={handleInputChange} />
                 </Form.Group>
-
+                < br></br>
                 <Form.Select aria-label="Default select example" className='input MuiOutlinedInput-notchedOutline' type="text" name="transport_method" value={footprintFormShipping.transport_method} onChange={handleInputChange}>
                     <option>Transport Method</option>
                     <option value='ship'>Ship</option>

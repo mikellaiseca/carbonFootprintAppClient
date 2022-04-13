@@ -1,11 +1,9 @@
-
-
-.suggestions{
+.suggestions {
     background-color: aqua;
     cursor: pointer;
 }
 
-.suggestions:hover{
+.suggestions:hover {
     background-color: beige;
 }
 
@@ -14,5 +12,5 @@ select option {
 }
 
 .MuiAutocomplete-option[data-focus="true"] {
-    background: #000;
+    background: transparent;
 }
