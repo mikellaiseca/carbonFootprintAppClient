@@ -10,7 +10,6 @@ const FootprintFormCarModel = ({ findModelId }) => {
     const [makerData, setMakerData] = useState([])
     const [modelData, setModelData] = useState({
         vehicle_make_id: ''
-
     })
     const [data, setData] = useState([])
 
@@ -40,7 +39,7 @@ const FootprintFormCarModel = ({ findModelId }) => {
 
 
     const handleInputChange = e => {
-        setIsDisabled(false)
+
         const { name, value } = e.target
 
         setModelData({
@@ -53,7 +52,13 @@ const FootprintFormCarModel = ({ findModelId }) => {
 
         footprintServiceFront
             .getCarModels(modelData.vehicle_make_id)
-            .then(response => setData(response.data))
+            .then(response => {
+                setData(response.data)
+                console.log(response.data.length)
+                response.data.length === undefined ? (console.log('<0')) :
+                    setIsDisabled(false)
+
+            })
             .catch(err => console.log(err))
 
     }
