@@ -1,9 +1,7 @@
-import { Card, Col, ListGroup, ListGroupItem, Button, Container, Accordion } from 'react-bootstrap'
-import { useEffect, useState } from 'react'
+import { ListGroup, Button, Accordion } from 'react-bootstrap'
 import footprintServiceBack from '../../services/footprintBack.service'
 import { AuthContext } from './../../context/auth.context'
 import { useContext } from 'react'
-import shippingIcon from './shipping-icon.png'
 import './Co2footprint.css'
 
 const Co2Shippingfootprint = ({ shippingFootprints }) => {

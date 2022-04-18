@@ -3,14 +3,12 @@ import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { Form, Button, Container } from 'react-bootstrap'
 import FootprintFormCarModel from './FootprintFormCarModel'
-import usersService from '../../services/users.service'
 
 const FootprintFormCar = () => {
 
     const [footprintFormCar, setFootprintFormCar] = useState({
         distance_value: "",
         vehicle_model_id: "",
-
     })
 
     const navigate = useNavigate()
@@ -55,14 +53,11 @@ const FootprintFormCar = () => {
                     <Form.Control className='input' type="text" name="distance_value" value={footprintFormCar.distance_value} onChange={handleInputChange} />
                 </Form.Group>
 
-
-
                 <Form.Group className="mb-3  formLabel red ">
                     <Form.Label>Vehicle model ID</Form.Label>
-
                     <Form.Control placeholder='This input will autofill' className='input-red' type="text" name="vehicle_model_id" value={footprintFormCar.vehicle_model_id} onChange={handleInputChange}
-
                     />
+
                 </Form.Group>
 
                 <FootprintFormCarModel findModelId={findModelId} />

@@ -2,9 +2,6 @@ import { useContext } from "react"
 import { Button, Card } from "react-bootstrap"
 import { AuthContext } from "../../context/auth.context"
 import commentService from "../../services/comment.service"
-import { useNavigate } from 'react-router-dom'
-import { useParams } from 'react-router-dom'
-
 import './CommentList.css'
 
 const CommentList = (commentId) => {
@@ -12,10 +9,6 @@ const CommentList = (commentId) => {
     const { user } = useContext(AuthContext)
 
     const commentInfo = commentId.commentId
-
-    const navigate = useNavigate()
-
-    const { user_id } = useParams()
 
     function refreshPage() {
         window.location.reload();

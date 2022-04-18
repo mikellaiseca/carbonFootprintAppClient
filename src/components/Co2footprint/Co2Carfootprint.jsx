@@ -9,7 +9,7 @@ const Co2Carfootprint = ({ carFootprints }) => {
 
     const { user } = useContext(AuthContext)
 
-    function refreshPage() {
+    const refreshPage = () => {
         window.location.reload();
     }
 
