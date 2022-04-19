@@ -24,7 +24,7 @@ const IndexPage = () => {
                                 alt="First slide"
                             />
                             <Carousel.Caption className="carousel-caption">
-                                <h3>Calculate your car Co2 Footprint</h3>
+                                <h3>Calculate your car CO<sub>2</sub> Footprint</h3>
                                 <p>Petrol and diesel cars are known to be big contributors to greenhouse gas emissions</p>
                             </Carousel.Caption>
                         </Link>
@@ -37,8 +37,8 @@ const IndexPage = () => {
                                 alt="Second slide"
                             />
                             <Carousel.Caption className="carousel-caption">
-                                <h3>Calculate your flights' Co2 Footprint</h3>
-                                <p>Aviation accounts for around 2.5% of global CO2 emissions</p>
+                                <h3>Calculate your flights' CO<sub>2</sub> Footprint</h3>
+                                <p>Aviation accounts for around 2.5% of global CO<sub>2</sub> emissions</p>
                             </Carousel.Caption>
                         </Link>
                     </Carousel.Item>
@@ -50,8 +50,8 @@ const IndexPage = () => {
                                 alt="Third slide"
                             />
                             <Carousel.Caption className="carousel-caption">
-                                <h3>Calculate your shipment's Co2 Footprint</h3>
-                                <p>The shipping industry is responsible for around 940 million tonnes of CO2 annually</p>
+                                <h3>Calculate your shipment's CO<sub>2</sub> Footprint</h3>
+                                <p>The shipping industry is responsible for around 940 million tonnes of CO<sub>2</sub> annually</p>
                             </Carousel.Caption>
                         </Link>
                     </Carousel.Item>
@@ -59,7 +59,7 @@ const IndexPage = () => {
 
                 <Row className="">
                     <Col className="card col">
-                        <h1>Check the latest news about Co2</h1>
+                        <h1>Check the latest news about CO<sub>2</sub></h1>
                         <Link to='/news'>
                             <Button className="button" variant="dark">
                                 News
