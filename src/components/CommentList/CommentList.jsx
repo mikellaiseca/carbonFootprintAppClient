@@ -36,7 +36,7 @@ const CommentList = (commentId) => {
                     <Card.Title>{commentInfo.author?.username}</Card.Title>
                     <Card.Subtitle className="mb-2 text-muted">{formatDate(commentInfo.date)}</Card.Subtitle>
                     <p>{commentInfo.content}</p>
-                    {(user._id === commentInfo.profile._id) ? (<Button className='button-sm' variant="primary" type="submit" onClick={deleteComment}>Delete</Button>) : null}
+                    {(user._id === commentInfo.profile._id) ? (<Button className='button-sm' variant="dark" type="submit" onClick={deleteComment}>Delete</Button>) : null}
                 </Card.Body>
             </Card>
         </>

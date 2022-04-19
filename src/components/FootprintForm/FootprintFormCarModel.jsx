@@ -16,6 +16,7 @@ const FootprintFormCarModel = ({ findModelId }) => {
     useEffect(() => {
 
         getMakerNames()
+        getModelNames()
 
     }, [])
 
@@ -38,7 +39,7 @@ const FootprintFormCarModel = ({ findModelId }) => {
 
     const handleInputChange = e => {
 
-        const { name, value } = e.target
+        const { value } = e.target
 
         setModelData({
             vehicle_make_id: value

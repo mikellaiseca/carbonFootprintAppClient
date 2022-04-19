@@ -1,4 +1,4 @@
-import { Container, Row, Col, Button, Carousel, NavLink, Nav } from "react-bootstrap"
+import { Container, Row, Col, Button, Carousel } from "react-bootstrap"
 import { Link } from "react-router-dom";
 import companyLogs from './images/company_logos.png'
 import mobileImg from './images/mobile-img.png'
@@ -13,7 +13,6 @@ import './IndexPage.css'
 const IndexPage = () => {
     return (
         <>
-
             <Container className="container-margin-bottom">
 
                 <Carousel className="carousel">
@@ -58,14 +57,11 @@ const IndexPage = () => {
                     </Carousel.Item>
                 </Carousel>
 
-
-
                 <Row className="">
-
                     <Col className="card col">
                         <h1>Check the latest news about Co2</h1>
                         <Link to='/news'>
-                            <Button className="button">
+                            <Button className="button" variant="dark">
                                 News
                             </Button>
                         </Link>
@@ -73,20 +69,17 @@ const IndexPage = () => {
                 </Row>
 
                 <Row className="card-block">
-
                     <Col >
-                        <img className="logo-images" src={companyLogs} />
+                        <img className="logo-images"
+                            src={companyLogs}
+                            alt="company logos"
+                        />
                     </Col>
-
                     <Col >
                         <h2>Our partner companies</h2>
                         <p>More than 50 of the top tech-companies are already checking their Co2Footprint through our app!</p>
                     </Col>
-
                 </Row>
-
-
-
 
                 <Row>
                     <Row className="block text-align-left">
@@ -98,8 +91,6 @@ const IndexPage = () => {
                     </Row>
                     <Row className="block">
                         <Col>
-
-
                             <Row className="happy-p">
                                 <Col sm={12}>
                                     <strong><p>📂 Optimized</p></strong>
@@ -110,20 +101,19 @@ const IndexPage = () => {
                                     <p className="justify-content">Climate change is a global challenge. Our integrations support secure climate-oriented customer experiences in 40+ languages, all currencies and major payment methods, ensuring you can enable your customers wherever they are.</p>
                                 </Col>
                             </Row>
-
-
                         </Col>
                         <Col>
-                            <img className="mobile-image" src={mobileImg} />
+                            <img className="mobile-image"
+                                src={mobileImg}
+                                alt="mobile" />
                         </Col>
                         <Col sm={6}>
-                            <img className="code-gif" src={codeGif} />
+                            <img className="code-gif"
+                                src={codeGif}
+                                alt="codeGif" />
                         </Col>
                     </Row>
                 </Row>
-
-
-
 
             </Container >
 

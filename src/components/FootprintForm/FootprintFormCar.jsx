@@ -1,17 +1,21 @@
 import footprintServiceBack from '../../services/footprintBack.service'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
+import { useContext } from 'react'
+import { AuthContext } from './../../context/auth.context'
 import { Form, Button, Container } from 'react-bootstrap'
 import FootprintFormCarModel from './FootprintFormCarModel'
 
+
 const FootprintFormCar = () => {
+
+    const navigate = useNavigate()
+    const { user } = useContext(AuthContext)
 
     const [footprintFormCar, setFootprintFormCar] = useState({
         distance_value: "",
         vehicle_model_id: "",
     })
-
-    const navigate = useNavigate()
 
     const handleInputChange = e => {
         const { name, value } = e.target
@@ -28,7 +32,7 @@ const FootprintFormCar = () => {
         footprintServiceBack
             .getCarFootprint(footprintFormCar)
             .then(() => {
-                navigate('/')
+                navigate(`/users/${user._id}`)
             })
             .catch(err => console.log(err))
 

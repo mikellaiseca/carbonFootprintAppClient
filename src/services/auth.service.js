@@ -2,8 +2,6 @@ import axios from 'axios'
 
 class AuthService {
 
-    //Qué BaseUrl es más consistente todo en el .env o así?
-
     constructor() {
         this.api = axios.create({ baseURL: `${process.env.REACT_APP_API_SERVER}/auth` })
 

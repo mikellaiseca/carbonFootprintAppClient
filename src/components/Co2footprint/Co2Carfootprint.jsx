@@ -41,7 +41,7 @@ const Co2Carfootprint = ({ carFootprints }) => {
                                     <strong> Co2 Kg:</strong> {carFootprint.carbon_kg} |
                                     <strong> Distance:</strong> {carFootprint.distance_value} {carFootprint.distance_unit} |
                                     <strong> Vehicle:</strong> {carFootprint.vehicle_make} {carFootprint.vehicle_model} {carFootprint.vehicle_year}
-                                    {(user._id === carFootprint.user) ? (<Button className='button-sm-sm' variant="primary" type="submit" onClick={() => deleteFootprintCar(carFootprint._id)} >X</Button>) : null}
+                                    {(user._id === carFootprint.user) ? (<Button className='button-sm-sm' variant="dark" type="submit" onClick={() => deleteFootprintCar(carFootprint._id)} >X</Button>) : null}
                                 </ListGroup.Item>
                             </ListGroup>
                         )

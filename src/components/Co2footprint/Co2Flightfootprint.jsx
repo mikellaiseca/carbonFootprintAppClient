@@ -41,7 +41,7 @@ const Co2Flightfootprint = ({ flightFootprints }) => {
                                     <strong> Co2 Kg:</strong> {flightFootprint.carbon_kg} |
                                     <strong> Passengers:</strong> {flightFootprint.passengers} |
                                     <strong> Round trip: </strong> {flightFootprint.legs[0].departure_airport}-{flightFootprint.legs[0].destination_airport}
-                                    {(user._id === flightFootprint.user) ? (<Button className='button-sm-sm' variant="primary" type="submit" onClick={() => deleteFootprintFlight(flightFootprint._id)}>X</Button>) : null}
+                                    {(user._id === flightFootprint.user) ? (<Button className='button-sm-sm' variant="dark" type="submit" onClick={() => deleteFootprintFlight(flightFootprint._id)}>X</Button>) : null}
                                 </ListGroup.Item>
                             </ListGroup>
                         )

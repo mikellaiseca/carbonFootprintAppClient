@@ -3,7 +3,6 @@ import commentService from '../../services/comment.service'
 import { useEffect, useState } from 'react'
 import { Card, Form, Container, Row, Col, Button } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
 import { AuthContext } from './../../context/auth.context'
 import { useContext } from 'react'
 import './UserDetails.css'
@@ -36,8 +35,6 @@ const UserDetails = () => {
 
     const [shippingFootprints, setShippingFootprint] = useState([])
     const [totalShippingFootprints, setTotalShippingFootprint] = useState([])
-
-    const navigate = useNavigate()
 
     const { user_id } = useParams()
 
@@ -127,7 +124,7 @@ const UserDetails = () => {
         e.preventDefault()
 
         commentService
-            .createComment({ content, author: user, profile: user_id, date: new Date })
+            .createComment({ content, author: user, profile: user_id, date: new Date() })
             .then(() => {
                 setLoadingComment(false)
                 setComment({
@@ -161,13 +158,10 @@ const UserDetails = () => {
                                 <Form.Group controlId="exampleForm.ControlTextarea1">
                                     <Form.Control className="comment-box" as="textarea" rows={3} name="content" placeholder="Leave your comment" value={content} onChange={handleInputChange} />
                                 </Form.Group>
-                                {loadingComment && <Button variant="primary" type="submit" className='button-sm comment-button'>Post</Button>}
+                                {loadingComment && <Button variant="dark" type="submit" className='button-sm comment-button'>Post</Button>}
                             </Form>
-
                             :
-
                             null
-
                         }
                         {commentsList?.map((comment, idx) => {
                             return <CommentList key={idx} commentId={comment} />

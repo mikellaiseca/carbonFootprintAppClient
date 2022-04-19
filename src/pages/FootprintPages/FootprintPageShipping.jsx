@@ -7,7 +7,6 @@ const FootprintPageShipping = () => {
     return (
         <>
             <FootprintFormShipping />
-
             <Footer />
 
         </>

@@ -2,8 +2,13 @@ import footprintServiceBack from '../../services/footprintBack.service'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { Form, Button, Container } from 'react-bootstrap'
+import { useContext } from 'react'
+import { AuthContext } from './../../context/auth.context'
 
 const FootprintFormShipping = () => {
+
+    const navigate = useNavigate()
+    const { user } = useContext(AuthContext)
 
     const [footprintFormShipping, setFootprintFormShipping] = useState({
         weight_unit: "",
@@ -12,7 +17,6 @@ const FootprintFormShipping = () => {
         transport_method: "",
     })
 
-    const navigate = useNavigate()
 
     const handleInputChange = e => {
         const { name, value } = e.target
@@ -29,7 +33,7 @@ const FootprintFormShipping = () => {
         footprintServiceBack
             .getShippingFootprint(footprintFormShipping)
             .then(() => {
-                navigate('/')
+                navigate(`/users/${user._id}`)
             })
 
     }

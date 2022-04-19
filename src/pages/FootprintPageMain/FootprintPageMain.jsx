@@ -19,14 +19,14 @@ const FootprintPageMain = () => {
                 <Row className="row">
                     <Col>
                         <Link to='/car-form'>
-                            <Button className="button">
+                            <Button className="button" variant="dark">
                                 Calculate car footprint
                             </Button>
                         </Link>
                     </Col>
                     <Col>
                         <Link to='/flight-form'>
-                            <Button className="button">
+                            <Button className="button" variant="dark">
                                 Calculate flight footprint
                             </Button>
                         </Link>
@@ -37,14 +37,13 @@ const FootprintPageMain = () => {
                 <Row>
                     <Col>
                         <Link to='/shipping-form'>
-                            <Button className="button">
+                            <Button className="button" variant="dark">
                                 Calculate shipping footprint
                             </Button>
                         </Link>
                     </Col>
 
                 </Row>
-
 
             </Container>
             <Footer />

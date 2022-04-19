@@ -41,7 +41,7 @@ const Co2Shippingfootprint = ({ shippingFootprints }) => {
                                     <strong> Weight:</strong> {shippingFootprint.weight_value} {shippingFootprint.weight_unit} |
                                     <strong> Distance:</strong> {shippingFootprint.distance_value}{shippingFootprint.distance_unit} |
                                     <strong> Transport Method:</strong> {shippingFootprint.transport_method}
-                                    {(user._id === shippingFootprint.user) ? (<Button className='button-sm-sm' variant="primary" type="submit" onClick={() => deleteFootprintShipping(shippingFootprint._id)} >X</Button>) : null}
+                                    {(user._id === shippingFootprint.user) ? (<Button className='button-sm-sm' variant="dark" type="submit" onClick={() => deleteFootprintShipping(shippingFootprint._id)} >X</Button>) : null}
                                 </ListGroup.Item>
                             </ListGroup>
                         )

@@ -35,7 +35,7 @@ function ContactForm() {
                 <Form.Label>Ask us anything</Form.Label>
                 <Form.Control as="textarea" name="message" style={{ height: '100px' }} value={contactForm.message} onChange={handleInputChange} />
             </Form.Group>
-            <Button type="submit" className="button-sm-sm" style={{ width: '100%' }}>Send</Button>
+            <Button type="submit" className="button-sm-sm" variant="dark" style={{ width: '100%' }}>Send</Button>
 
         </Form>
     )

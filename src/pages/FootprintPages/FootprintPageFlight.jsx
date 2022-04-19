@@ -7,7 +7,6 @@ const FootprintPageFlight = () => {
     return (
         <>
             <FootprintFormFlight />
-
             <Footer />
 
         </>

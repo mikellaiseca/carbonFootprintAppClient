@@ -1,4 +1,4 @@
-import { Container, Row, Col, Button, Carousel, NavLink, Nav, ListGroup } from "react-bootstrap"
+import { Col, ListGroup } from "react-bootstrap"
 import './Footer.css'
 import logo from './logo.png'
 

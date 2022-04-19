@@ -2,7 +2,6 @@ import { useState, useContext } from "react"
 import { Form, Button } from 'react-bootstrap'
 import authService from '../../services/auth.service'
 import { useNavigate } from 'react-router-dom'
-// import { MessageContext } from './../../context/userMessage.context'
 import { AuthContext } from './../../context/auth.context'
 
 function LoginForm() {
@@ -14,7 +13,6 @@ function LoginForm() {
 
     const navigate = useNavigate()
 
-    // const { setShowMessage, setMessageInfo } = useContext(MessageContext)
     const { storeToken, authenticateUser } = useContext(AuthContext)
 
     const handleInputChange = e => {
@@ -34,8 +32,6 @@ function LoginForm() {
             .then(({ data }) => {
                 storeToken(data.authToken)
                 authenticateUser()
-                // setShowMessage(true)
-                // setMessageInfo({ title: 'Éxito', desc: 'Sesión iniciada correctamente' })
                 navigate('/')
             })
             .catch(err => console.log(err))

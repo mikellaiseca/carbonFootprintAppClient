@@ -2,11 +2,16 @@ import footprintServiceBack from '../../services/footprintBack.service'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { Form, Button, Container } from 'react-bootstrap'
+import { useContext } from 'react'
+import { AuthContext } from './../../context/auth.context'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 import TextField from '@material-ui/core/TextField'
-import airportData from '../../airpots.data.json'
+import airportData from '../../airports.data.json'
 
 const FootprintFormFlight = () => {
+
+    const navigate = useNavigate()
+    const { user } = useContext(AuthContext)
 
     const [footprintForm, setFootprintForm] = useState({
         passengers: "",
@@ -14,7 +19,7 @@ const FootprintFormFlight = () => {
         destination_airport: "",
     })
 
-    const navigate = useNavigate()
+
 
     const handleInputChange = e => {
         const { name, value } = e.target
@@ -46,7 +51,7 @@ const FootprintFormFlight = () => {
         footprintServiceBack
             .getFlightFootprint(footprintForm)
             .then(() => {
-                navigate('/')
+                navigate(`/users/${user._id}`)
             })
 
     }

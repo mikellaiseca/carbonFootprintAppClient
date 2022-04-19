@@ -47,7 +47,7 @@ const News = () => {
                                         </Card.Text>
 
                                         <Button className="button-sm-sm" role='link' href={elm.url} as='a' target="_blank"
-                                            variant="primary">Continue reading</Button>
+                                            variant="dark">Continue reading</Button>
                                     </Card.Body>
                                 </Card>
                             </Col>

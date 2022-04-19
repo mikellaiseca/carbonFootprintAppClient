@@ -2,21 +2,21 @@ import { useContext } from 'react'
 import { Navbar, Container, Nav } from "react-bootstrap"
 import { NavLink } from 'react-router-dom'
 import { AuthContext } from './../../context/auth.context'
-import { useParams } from 'react-router-dom'
 import './Navigation.css'
 import logo from './logo.png'
 
 const Navigation = () => {
 
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext)
-  const { user_id } = useParams()
 
   return (
 
     <Navbar className='full-navbar' bg="light" expand="lg">
       <Container>
         <NavLink className="navbar-links" to='/'>
-          <img className='logo-app-nav' src={logo} />
+          <img className='logo-app-nav'
+            src={logo}
+            alt="web page logo" />
         </NavLink>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

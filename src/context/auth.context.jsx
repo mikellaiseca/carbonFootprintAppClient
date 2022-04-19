@@ -22,7 +22,6 @@ function AuthProviderWrapper(props) {
         return localStorage.getItem("authToken")
     }
 
-
     const authenticateUser = () => {
 
         const storedToken = getToken()
