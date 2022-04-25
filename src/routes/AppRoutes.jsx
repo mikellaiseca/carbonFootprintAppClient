@@ -8,7 +8,9 @@ import NewsPage from '../pages/NewsPage/NewsPage'
 import PrivateRoute from './PrivateRoute'
 import FootprintPageMain from '../pages/FootprintPageMain/FootprintPageMain'
 import FootprintPageCar from '../pages/FootprintPages/FootprintPageCar'
+
 import { Route, Routes } from "react-router-dom"
+
 import FootprintPageFlight from '../pages/FootprintPages/FootprintPageFlight'
 import ErrorPage from '../pages/ErrorPage/ErrorPage'
 import FootprintPageShipping from '../pages/FootprintPages/FootprintPageShipping'
